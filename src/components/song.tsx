@@ -2,7 +2,8 @@ import React from "react";
 import { useLanyard } from "use-lanyard";
 import { SiSpotify } from "react-icons/si";
 
-export const DISCORD_ID = "855130539048960030";
+import { DISCORD_ID } from "utils";
+
 
 export function Song() {
   const { data: user } = useLanyard(DISCORD_ID);

@@ -1,7 +1,6 @@
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 const config = {
-  content: ["./src/**/*.{tsx,ts,css}"],
-  darkMode: "media",
+  content: ["./src/*/*.{tsx,jsx}"],
   theme: {
     extend: {},
   },
