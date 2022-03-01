@@ -1,4 +1,3 @@
-import React from "react";
 import { useLanyard } from "use-lanyard";
 import { SiSpotify } from "react-icons/si";
 
@@ -30,7 +29,7 @@ export function Song() {
       href={`https://open.spotify.com/track/${user.spotify.track_id}`}
     >
       <span className="truncate">
-        Listening to {user.spotify.song} by {user.spotify.artist}
+        {user.spotify.song} by {user.spotify.artist}
       </span>
       <span>
         <SiSpotify />
