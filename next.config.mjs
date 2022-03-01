@@ -5,11 +5,6 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/twitter",
-        destination: "https://twitter.com/UltiRequiem",
-        permanent: true,
-      },
-      {
         source: "/github",
         destination: "https://github.com/UltiRequiem",
         permanent: true,
@@ -22,6 +17,12 @@ const nextConfig = {
       {
         source: "/youtube",
         destination: "https://www.youtube.com/UltiRequiem",
+        permanent: true,
+      },
+
+      {
+        source: "/spotify",
+        destination: "https://open.spotify.com/user/12168426446",
         permanent: true,
       },
       {
@@ -37,6 +38,11 @@ const nextConfig = {
       {
         source: "/twitter",
         destination: "https://twitter.com/UltiRequiem",
+        permanent: true,
+      },
+      {
+        source: "/instagram",
+        destination: "https://www.instagram.com/zk.requiem",
         permanent: true,
       },
       {
