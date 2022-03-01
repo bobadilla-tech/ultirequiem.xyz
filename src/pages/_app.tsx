@@ -106,14 +106,10 @@ export default function App({ Component, pageProps, router }: AppProps) {
         </a>
       </li>
       <li>
-        <a
-          href="/extras"
-          className={navlinkClassname}
-        >
+        <a href="/extras" className={navlinkClassname}>
           extras
         </a>
       </li>
-
     </>
   );
 

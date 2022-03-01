@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import {AnimatePresence, motion} from 'framer-motion';
+import { AnimatePresence, motion } from "framer-motion";
 
 import type { PinnedRepo } from "hooks/github";
 

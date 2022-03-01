@@ -3,91 +3,91 @@
 @tailwind utilities;
 
 html {
-	font-family: 'Roboto', sans-serif;
-	font-weight: 400;
-	font-size: 0.9rem;
-	height: 100%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  height: 100%;
 
-	@apply bg-white dark:bg-black;
+  @apply bg-white dark:bg-black;
 }
 
 p {
-	@apply text-lg leading-8;
+  @apply text-lg leading-8;
 }
 
 body {
-	margin: 0;
-	box-sizing: border-box;
+  margin: 0;
+  box-sizing: border-box;
 
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-	min-height: 100%;
+  min-height: 100%;
 
-	@apply bg-gradient-to-tr dark:from-gray-900 dark:to-black dark:text-neutral-100;
+  @apply bg-gradient-to-tr dark:from-gray-900 dark:to-black dark:text-neutral-100;
 
-	background-size: cover;
-	background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #__next {
-	min-height: 100%;
+  min-height: 100%;
 }
 
 code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-		monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-	@apply dark:text-white cursor-pointer underline;
+  @apply dark:text-white cursor-pointer underline;
 }
 
 img {
-	-webkit-user-drag: none;
+  -webkit-user-drag: none;
 }
 
 .image-span-block > span:first-child {
-	@apply !block;
+  @apply !block;
 }
 
 .glass {
-	background: rgba(15, 17, 21, 0.5);
-	backdrop-filter: blur(7px);
-	-webkit-backdrop-filter: blur(7px);
-	border-radius: 10px;
-	border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(15, 17, 21, 0.5);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .title {
-	font-family: 'Krona One', sans-serif;
+  font-family: "Krona One", sans-serif;
 }
 
 .bg {
-	filter: blur(10px);
+  filter: blur(10px);
 }
 
 .bg-blur {
-	backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .ball-transitions {
-	transition: opacity 0.2s, transform 0.1s;
+  transition: opacity 0.2s, transform 0.1s;
 }
 
 .singlarity-hover > * {
-	@apply transition-all duration-500;
+  @apply transition-all duration-500;
 }
 
 .singlarity-hover:hover > * {
-	@apply opacity-50;
+  @apply opacity-50;
 }
 
 .singlarity-hover > *:hover {
-	@apply opacity-100;
+  @apply opacity-100;
 }

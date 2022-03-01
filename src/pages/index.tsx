@@ -14,7 +14,8 @@ interface Props {
 }
 
 const Home: NextPage<Props> = (props) => {
-  const { data: projects = props.pinnedRepos } = useGitHubPinnedRepos("ultirequiem");
+  const { data: projects = props.pinnedRepos } =
+    useGitHubPinnedRepos("ultirequiem");
 
   return (
     <div>
