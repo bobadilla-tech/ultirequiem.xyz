@@ -5,11 +5,11 @@ import { age, DISCORD_ID } from "utils";
 import type { Data as LanyardData, LanyardResponse } from "use-lanyard";
 
 import { LanyardError } from "use-lanyard";
-import { PinnedRepo, useGitHubPinnedRepos } from "hooks/github";
+import { GitHubPinnedRepo, useGitHubPinnedRepos } from "use-github";
 import { ProjectCard } from "components/ui/project-card";
 
 interface Props {
-  pinnedRepos: PinnedRepo[];
+  pinnedRepos: GitHubPinnedRepo[];
   lanyard: LanyardData;
 }
 
@@ -39,7 +39,7 @@ export default Home;
 export const getStaticProps: GetStaticProps<Props> = async function () {
   const pinnedRepos = await fetch(
     "https://gh-pinned-repos.egoist.sh/?username=ultirequiem"
-  ).then(async (response) => response.json() as Promise<PinnedRepo[]>);
+  ).then(async (response) => response.json() as Promise<GitHubPinnedRepo[]>);
 
   const lanyard = await fetch(
     `https://api.lanyard.rest/v1/users/${DISCORD_ID}`

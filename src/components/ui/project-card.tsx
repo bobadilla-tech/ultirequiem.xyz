@@ -1,9 +1,9 @@
 import { useReducer } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-import type { PinnedRepo } from "hooks/github";
+import type { GitHubPinnedRepo } from "use-github";
 
-export function ProjectCard({ repo: project }: { repo: PinnedRepo }) {
+export function ProjectCard({ repo: project }: { repo: GitHubPinnedRepo }) {
   const [isOpen, toggle] = useReducer((x) => !x, false);
 
   return (
