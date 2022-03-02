@@ -25,7 +25,7 @@ export type Tags =
   | "kumeru";
 
 // I have more than 234 repos 😩
-const projects: Project[] = [
+export const projects: Project[] = [
   {
     name: "Sergif",
     description:
