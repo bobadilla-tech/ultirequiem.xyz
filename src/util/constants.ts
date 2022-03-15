@@ -1,0 +1,11 @@
+export const DISCORD_ID = "855130539048960030";
+export const USERNAME = "ultirequiem";
+export const COUNTRY = "Peru";
+export const NAME = "Eliaz";
+export const FULL_NAME = "Eliaz Bobadilla";
+export const POSITION = "Software Engineer";
+export const YEAR = new Date().getFullYear();
+export const PFP = "https://avatars.githubusercontent.com/u/71897736?v=4";
+export const GITHUB = `https://github.com/${USERNAME}`;
+export const TWITTER = `https://twitter.com/${USERNAME}`;
+export const LINKEDIN = `https://www.linkedin.com/in/${USERNAME}`;

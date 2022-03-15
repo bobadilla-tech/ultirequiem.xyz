@@ -1,11 +1,22 @@
+const defaults = require("tailwindcss/defaultTheme");
+
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 const config = {
-  content: ["./src/*/*.{tsx,jsx}"],
+  content: ["./src/**/*.{tsx,ts,css}"],
   darkMode: "media",
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        ...defaults.fontFamily,
+        sans: ["Roboto", ...defaults.fontFamily.sans],
+      },
+    },
   },
-  plugins: [],
+  variants: {
+    typography: ["dark"],
+    animation: ["motion-safe"],
+  },
+  plugins: [require("@tailwindcss/typography")],
 };
 
 module.exports = config;

@@ -1,7 +1,7 @@
 import { useLanyard } from "use-lanyard";
 import { SiSpotify } from "react-icons/si";
 
-import { DISCORD_ID } from "utils";
+import { DISCORD_ID } from "../util/constants";
 
 export function Song() {
   const { data: user } = useLanyard(DISCORD_ID);
@@ -28,7 +28,7 @@ export function Song() {
       href={`https://open.spotify.com/track/${user.spotify.track_id}`}
     >
       <span className="truncate">
-        {user.spotify.song} by {user.spotify.artist}
+        Listening to {user.spotify.song} by {user.spotify.artist}
       </span>
       <span>
         <SiSpotify />

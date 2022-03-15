@@ -1,20 +1,17 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
+import { FULL_NAME, PFP, COUNTRY } from "../util/constants";
 
-export default class UltiDoc extends Document {
+export default class Page extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
-          <link
-            rel="icon"
-            type="image/png"
-            href="https://avatars.githubusercontent.com/u/71897736?v=4"
-          />
+          <link rel="icon" type="image/png" href={PFP} />
           <meta name="theme-color" content="#ffffff" />
           <meta
             name="description"
-            content="Eliaz Bobadilla, Full–stack and System engineer from Peru"
+            content={`${FULL_NAME}, Full–stack Web and System developer from ${COUNTRY}`}
           />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link

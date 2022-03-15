@@ -1,1 +1,0 @@
-export const DISCORD_ID = "855130539048960030";

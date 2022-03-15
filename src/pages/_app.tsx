@@ -1,10 +1,4 @@
-import React, {
-  ReactNode,
-  StrictMode,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { ReactNode, StrictMode, useEffect, useRef, useState } from "react";
 import { AppProps } from "next/app";
 import Head from "next/head";
 import { Router } from "next/router";
@@ -13,15 +7,22 @@ import Link from "next/link";
 import { SWRConfig } from "swr";
 import { Toaster } from "react-hot-toast";
 import { Squash as Hamburger } from "hamburger-react";
-import { loadCursor } from "utils/cursor";
+import { loadCursor } from "../util/cursor";
 import { Song } from "../components/song";
-import { DISCORD_ID } from "utils";
+import {
+  DISCORD_ID,
+  FULL_NAME,
+  POSITION,
+  USERNAME,
+  YEAR,
+} from "../util/constants";
 
 import "react-tippy/dist/tippy.css";
-import "tailwindcss/tailwind.css";
 import "nprogress/nprogress.css";
 import { AnimatePresence, motion } from "framer-motion";
-import { fetcher } from "../utils";
+import { fetcher } from "nextkit-fetcher";
+
+import "../styles/global.css";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -92,22 +93,14 @@ export default function App({ Component, pageProps, router }: AppProps) {
       <NavLink href="/about" closeMenu={closeMenu}>
         /about
       </NavLink>
-      <NavLink href="/talk" closeMenu={closeMenu}>
-        /talk
-      </NavLink>
       <li>
         <a
           target="_blank"
           href="https://blog.ultirequiem.com"
           rel="noreferrer"
-          className={navlinkClassname}
+          className={navLinkClassName}
         >
           blog ↗️
-        </a>
-      </li>
-      <li>
-        <a href="/extras" className={navlinkClassname}>
-          extras
         </a>
       </li>
     </>
@@ -118,9 +111,9 @@ export default function App({ Component, pageProps, router }: AppProps) {
       <SWRConfig
         value={{
           fallback: {
-            [`lanyard:${DISCORD_ID}`]: pageProps?.lanyard as unknown,
-            "https://gh-pinned-repos.egoist.sh/?username=ultirequiem":
-              pageProps?.pinnedRepos as unknown,
+            [`lanyard:${DISCORD_ID}`]: pageProps?.lanyard,
+            [`https://gh-pinned-repos.egoist.sh/?username=${USERNAME}`]:
+              pageProps?.pinnedRepos,
           },
           fetcher,
         }}
@@ -128,7 +121,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
         <Toaster toastOptions={{ position: "top-left" }} />
 
         <Head>
-          <title>Eliaz Bobadilla</title>
+          <title>{FULL_NAME}</title>
         </Head>
 
         <AnimatePresence>
@@ -139,7 +132,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
               exit={{ opacity: 0 }}
               className="fixed inset-0 z-10 py-24 px-8 space-y-2 bg-white dark:bg-gray-900 sm:hidden"
             >
-              <h1 className="text-4xl font-bold">Menu.</h1>
+              <h1 className="text-4xl font-bold">Sections</h1>
 
               <ul className="grid grid-cols-1 gap-2">{navLinks}</ul>
             </motion.div>
@@ -196,8 +189,10 @@ export default function App({ Component, pageProps, router }: AppProps) {
           </main>
 
           <footer className="p-4 py-10 mx-auto mt-20 max-w-3xl border-t-2 border-gray-900/10 dark:border-white/10 opacity-50">
-            <h1 className="text-3xl font-bold">Eliaz Bobadilla</h1>
-            <p>Software Engineer • {new Date().getFullYear()}</p>
+            <h1 className="text-3xl font-bold">{FULL_NAME}</h1>
+            <p>
+              {POSITION} • {YEAR}
+            </p>
           </footer>
         </div>
 
@@ -210,9 +205,6 @@ export default function App({ Component, pageProps, router }: AppProps) {
   );
 }
 
-const navlinkClassname =
-  "block py-3 font-mono text-lg dark:hover:text-white no-underline dark:sm:hover:bg-white/10 rounded-md sm:inline-block sm:px-5 sm:text-sm sm:font-normal sm:underline sm:bg-white/0 sm:hover:bg-gray-900/5 sm:rounded-full";
-
 function NavLink(props: {
   children: ReactNode;
   href: string;
@@ -221,10 +213,13 @@ function NavLink(props: {
   return (
     <li>
       <Link href={props.href}>
-        <a className={navlinkClassname} onClick={props.closeMenu}>
+        <a className={navLinkClassName} onClick={props.closeMenu}>
           {props.children}
         </a>
       </Link>
     </li>
   );
 }
+
+const navLinkClassName =
+  "block py-3 font-mono text-lg dark:hover:text-white no-underline dark:sm:hover:bg-white/10 rounded-md sm:inline-block sm:px-5 sm:text-sm sm:font-normal sm:underline sm:bg-white/0 sm:hover:bg-gray-900/5 sm:rounded-full";
