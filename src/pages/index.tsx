@@ -1,15 +1,9 @@
-import { ProjectCard } from "../components/project-card";
-import { GetStaticProps } from "next";
-import { HiOutlineLocationMarker } from "react-icons/hi";
-import { Technologies } from "../container/technologies";
-import {
-  Data as LanyardData,
-  LanyardError,
-  LanyardResponse,
-  useLanyard,
-} from "use-lanyard";
+import { LanyardError, useLanyard } from "use-lanyard";
 import { GitHubPinnedRepo, useGitHubPinnedRepos } from "use-github";
-import { ListItem } from "../components/list-item";
+
+import { SiGithub, SiTwitter } from "react-icons/si";
+import { HiOutlineLocationMarker } from "react-icons/hi";
+
 import {
   COUNTRY,
   DISCORD_ID,
@@ -17,21 +11,21 @@ import {
   NAME,
   TWITTER,
   USERNAME,
-} from "../util/constants";
-import { age } from "../util/time";
-import dayjs from "dayjs";
+  age,
+} from "../util";
 
-import relativeTime from "dayjs/plugin/relativeTime";
-import { SiGithub, SiTwitter } from "react-icons/si";
+import { ProjectCard } from "../components/project-card";
+import { Technologies } from "../container/technologies";
 
-dayjs.extend(relativeTime);
+import type { GetStaticProps, NextPage } from "next";
+import type { Data, LanyardResponse } from "use-lanyard";
 
 interface Props {
   pinnedRepos: GitHubPinnedRepo[];
-  lanyard: LanyardData;
+  lanyard: Data;
 }
 
-export default function Index(props: Props) {
+const Index: NextPage<Props> = (props) => {
   const { data: projects = props.pinnedRepos } = useGitHubPinnedRepos(USERNAME);
 
   const { data: lanyard } = useLanyard(DISCORD_ID, {
@@ -122,9 +116,9 @@ export default function Index(props: Props) {
       </div>
     </>
   );
-}
+};
 
-export const getStaticProps: GetStaticProps<Props> = async function () {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const pinnedReposResponse = await fetch(
     `https://gh-pinned-repos.egoist.sh/?username=${USERNAME}`
   );
@@ -146,3 +140,5 @@ export const getStaticProps: GetStaticProps<Props> = async function () {
     revalidate: 120,
   };
 };
+
+export default Index;

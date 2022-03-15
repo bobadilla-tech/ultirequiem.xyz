@@ -1,8 +1,3 @@
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
-
-dayjs.extend(relativeTime);
-
 export default function AboutPage() {
   return (
     <div className="space-y-8">

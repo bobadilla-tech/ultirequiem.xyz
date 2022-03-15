@@ -2,7 +2,7 @@ export const DISCORD_ID = "855130539048960030";
 export const USERNAME = "ultirequiem";
 export const COUNTRY = "Peru";
 export const NAME = "Eliaz";
-export const FULL_NAME = "Eliaz Bobadilla";
+export const FULL_NAME = `${NAME} Bobadilla`;
 export const POSITION = "Software Engineer";
 export const YEAR = new Date().getFullYear();
 export const PFP = "https://avatars.githubusercontent.com/u/71897736?v=4";

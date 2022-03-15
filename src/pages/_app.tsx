@@ -1,28 +1,33 @@
-import { ReactNode, StrictMode, useEffect, useRef, useState } from "react";
-import { AppProps } from "next/app";
+import { StrictMode, useEffect, useRef, useState } from "react";
+
 import Head from "next/head";
 import { Router } from "next/router";
-import NProgress from "nprogress";
-import Link from "next/link";
+
 import { SWRConfig } from "swr";
+import NProgress from "nprogress";
 import { Toaster } from "react-hot-toast";
-import { Squash as Hamburger } from "hamburger-react";
-import { loadCursor } from "../util/cursor";
-import { Song } from "../components/song";
+import { Squash } from "hamburger-react";
+
+import { Song } from "../components";
 import {
   DISCORD_ID,
   FULL_NAME,
   POSITION,
   USERNAME,
   YEAR,
-} from "../util/constants";
+  loadCursor,
+} from "../util/";
+import { NavLink, navLinkClassName } from "../container";
 
-import "react-tippy/dist/tippy.css";
-import "nprogress/nprogress.css";
 import { AnimatePresence, motion } from "framer-motion";
+
 import { fetcher } from "nextkit-fetcher";
 
 import "../styles/global.css";
+import "react-tippy/dist/tippy.css";
+import "nprogress/nprogress.css";
+
+import type { AppProps } from "next/app";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -159,7 +164,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
                 className="block relative z-50 px-2 text-gray-500 focus:ring transition-all"
                 onClick={toggleMenu}
               >
-                <Hamburger
+                <Squash
                   toggled={mobileMenuOpen}
                   size={20}
                   color="currentColor"
@@ -204,22 +209,3 @@ export default function App({ Component, pageProps, router }: AppProps) {
     </StrictMode>
   );
 }
-
-function NavLink(props: {
-  children: ReactNode;
-  href: string;
-  closeMenu?: () => void;
-}) {
-  return (
-    <li>
-      <Link href={props.href}>
-        <a className={navLinkClassName} onClick={props.closeMenu}>
-          {props.children}
-        </a>
-      </Link>
-    </li>
-  );
-}
-
-const navLinkClassName =
-  "block py-3 font-mono text-lg dark:hover:text-white no-underline dark:sm:hover:bg-white/10 rounded-md sm:inline-block sm:px-5 sm:text-sm sm:font-normal sm:underline sm:bg-white/0 sm:hover:bg-gray-900/5 sm:rounded-full";
