@@ -9,3 +9,4 @@ export const PFP = "https://avatars.githubusercontent.com/u/71897736?v=4";
 export const GITHUB = `https://github.com/${USERNAME}`;
 export const TWITTER = `https://twitter.com/${USERNAME}`;
 export const LINKEDIN = `https://www.linkedin.com/in/${USERNAME}`;
+export const EMAIL = "eliaz.bobadilladev@gmail.com"
