@@ -28,7 +28,7 @@ export default api({
                 name: "ip",
                 value:
                   req.headers["x-forwarded-for"] ??
-                  req.socket.remoteAddress ??
+                  req.socket.remoteAddress??
                   "unknown!?",
               },
             ],

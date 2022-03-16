@@ -4,7 +4,7 @@ import { GitHubPinnedRepo, useGitHubPinnedRepos } from "use-github";
 import { SiGithub, SiTwitter } from "react-icons/si";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 
-import { COUNTRY, DISCORD_ID, GITHUB, NAME, USERNAME, age } from "../util";
+import { COUNTRY, DISCORD_ID, NAME, USERNAME, age } from "../util";
 
 import { ProjectCard } from "../components/project-card";
 import { Technologies } from "../container/technologies";
