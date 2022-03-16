@@ -3,12 +3,12 @@ import { toast } from "react-hot-toast";
 import { useLanyard } from "use-lanyard";
 
 import { ListItem } from "../components";
-import { DISCORD_ID, EMAIL, USERNAME } from "../util";
+import { DISCORD_ID, EMAIL, USERNAME, form } from "../util";
+import { Email, Twitter } from "../container/socials";
 
 import { HiOutlineMail } from "react-icons/hi";
 import { RiPhoneLine, RiSendPlane2Line } from "react-icons/ri";
 import { SiDiscord, SiTwitter } from "react-icons/si";
-import { form } from "../util";
 
 const statusMap = {
   online: "bg-green-500",
@@ -57,8 +57,7 @@ export default function Talk() {
                   error: (error: Error) =>
                     error?.message ?? "Something went wrong...",
                 })
-                .then(async () => router.push("/thanks"))
-                .catch(() => null);
+                .then(() => router.push("/thanks"));
             }}
           >
             <label htmlFor="email" className="block">
@@ -102,11 +101,13 @@ export default function Talk() {
 
         <div>
           <ul className="space-y-2 list-disc list-inside">
-            <ListItem icon={HiOutlineMail} text={EMAIL} />
+            <Email>
+              <ListItem icon={HiOutlineMail} text={EMAIL} />
+            </Email>
             <ListItem
               icon={SiDiscord}
               text={
-                lanyard ? (
+                lanyard && (
                   <span className="flex items-center space-x-1">
                     <span>
                       {lanyard.discord_user.username}#
@@ -121,10 +122,13 @@ export default function Talk() {
                       } h-2 w-2 inline-block rounded-full`}
                     />
                   </span>
-                ) : null
+                )
               }
             />
-            <ListItem icon={SiTwitter} text={USERNAME} />
+
+            <Twitter>
+              <ListItem icon={SiTwitter} text={USERNAME} />
+            </Twitter>
             <ListItem icon={RiPhoneLine} text="+51 923-531-893" />
           </ul>
         </div>

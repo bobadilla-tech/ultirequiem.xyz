@@ -4,21 +4,14 @@ import { GitHubPinnedRepo, useGitHubPinnedRepos } from "use-github";
 import { SiGithub, SiTwitter } from "react-icons/si";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 
-import {
-  COUNTRY,
-  DISCORD_ID,
-  GITHUB,
-  NAME,
-  TWITTER,
-  USERNAME,
-  age,
-} from "../util";
+import { COUNTRY, DISCORD_ID, GITHUB, NAME, USERNAME, age } from "../util";
 
 import { ProjectCard } from "../components/project-card";
 import { Technologies } from "../container/technologies";
 
 import type { GetStaticProps, NextPage } from "next";
 import type { Data, LanyardResponse } from "use-lanyard";
+import { GitHub, Twitter } from "../container/socials";
 
 interface Props {
   pinnedRepos: GitHubPinnedRepo[];
@@ -36,25 +29,15 @@ const Index: NextPage<Props> = (props) => {
     <>
       <div className="space-y-4">
         <div className="flex items-center space-x-3">
-          <a
-            href={GITHUB}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub Profile"
-          >
+          <GitHub>
             <SiGithub className="w-7 h-7" />
             <span className="sr-only">GitHub Profile</span>
-          </a>
+          </GitHub>
 
-          <a
-            href={TWITTER}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Twitter Profile"
-          >
+          <Twitter>
             <SiTwitter className="w-7 h-7" />
             <span className="sr-only">Twitter Profile</span>
-          </a>
+          </Twitter>
 
           {lanyard && (
             <p className="inline-flex items-center space-x-2">

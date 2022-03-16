@@ -8,12 +8,16 @@ export interface ListItemProps {
 }
 
 export function ListItem({ text, icon, href }: ListItemProps) {
-  return (
-    <a href={href} className="no-underline" target="_blank" rel="noreferrer">
-      <li className="flex space-x-2">
-        <span>{icon({ className: "h-6 w-6" })}</span>
-        <span>{text}</span>
-      </li>
-    </a>
+  const item = (
+    <li className="flex space-x-2">
+      <span>{icon({ className: "h-6 w-6" })}</span>
+      <span>{text}</span>
+    </li>
   );
+
+  if (href) {
+    return <a href={href}>{item}</a>;
+  }
+
+  return item;
 }
