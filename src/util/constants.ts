@@ -4,7 +4,7 @@ export const COUNTRY = "Peru";
 export const NAME = "Eliaz";
 export const FULL_NAME = `${NAME} Bobadilla`;
 export const POSITION = "Software Engineer";
-export const YEAR = new Date().getFullYear();
+export const CURRENT_YEAR = new Date().getFullYear();
 export const PFP = "https://avatars.githubusercontent.com/u/71897736?v=4";
 export const GITHUB = `https://github.com/${USERNAME}`;
 export const TWITTER = `https://twitter.com/${USERNAME}`;

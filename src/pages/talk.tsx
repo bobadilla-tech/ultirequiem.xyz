@@ -8,6 +8,7 @@ import { DISCORD_ID, EMAIL, USERNAME } from "../util";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiPhoneLine, RiSendPlane2Line } from "react-icons/ri";
 import { SiDiscord, SiTwitter } from "react-icons/si";
+import { form } from "../util";
 
 const statusMap = {
   online: "bg-green-500",
