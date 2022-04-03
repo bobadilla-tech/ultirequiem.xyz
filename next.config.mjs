@@ -42,7 +42,7 @@ const nextConfig = {
       },
       {
         source: "/instagram",
-        destination: "https://www.instagram.com/zk.requiem",
+        destination: "https://www.instagram.com/ulti.requiem",
         permanent: true,
       },
       {
