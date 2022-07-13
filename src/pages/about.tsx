@@ -38,23 +38,13 @@ const AboutPage: NextPage = () => {
         </p>
 
         <p>
-          I'm a high fan of making, reading, and contributing to open source,
-          you can{" "}
-          <a href="https://www.patreon.com/UltiRequiem">
-            sponsor me on Patreon
-          </a>{" "}
-          😆 . In there I usually make posts of my latest work and libraries I'm
-          maintaining, occasionally, personal stuff too.
-        </p>
-
-        <p>
           I have been programming since I was 14 year old, in the final days of
           2020! I've learned a lot about core programming principles, design
           patterns and systems architecture.
         </p>
 
         <p>
-          Recently I have been working a lot on my Net Working/Online presence,
+          Recently I have been working on my online presence,
           mostly only Twitter, so if you want to know what I'm doing check it
           out! <a href="https://twitter.com/UltiRequiem">@UltiRequiem</a> 🚀
         </p>
