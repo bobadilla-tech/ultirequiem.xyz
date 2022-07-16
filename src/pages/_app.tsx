@@ -92,11 +92,11 @@ export default function App({ Component, pageProps, router }: AppProps) {
   const navLinks = (
     <>
       <NavLink href="/" closeMenu={closeMenu}>
-        /
+        Home
       </NavLink>
 
       <NavLink href="/contact" closeMenu={closeMenu}>
-        /contact
+        Contact
       </NavLink>
 
       <li>
@@ -106,7 +106,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
           rel="noreferrer"
           className={navLinkClassName}
         >
-          blog
+          Blog 📝
         </a>
       </li>
     </>
