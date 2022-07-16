@@ -21,8 +21,6 @@ import { NavLink, navLinkClassName } from "../container";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-import { fetcher } from "nextkit-fetcher";
-
 import "../styles/global.css";
 import "react-tippy/dist/tippy.css";
 import "nprogress/nprogress.css";
@@ -111,7 +109,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
           rel="noreferrer"
           className={navLinkClassName}
         >
-          blog ↗️
+          blog
         </a>
       </li>
     </>
@@ -126,7 +124,6 @@ export default function App({ Component, pageProps, router }: AppProps) {
             [`https://gh-pinned-repos.egoist.sh/?username=${USERNAME}`]:
               pageProps?.pinnedRepos,
           },
-          fetcher,
         }}
       >
         <Toaster toastOptions={{ position: "top-left" }} />
