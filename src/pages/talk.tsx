@@ -3,7 +3,7 @@ import { toast } from "react-hot-toast";
 import { useLanyard } from "use-lanyard";
 
 import { ListItem } from "../components";
-import { DISCORD_ID, EMAIL, USERNAME, form } from "../util";
+import { DISCORD_ID, EMAIL, form, USERNAME } from "../util";
 import { Email, Twitter } from "../container/socials";
 
 import { HiOutlineMail } from "react-icons/hi";
@@ -39,7 +39,7 @@ export default function Talk() {
               event.preventDefault();
 
               const values = Object.fromEntries(
-                new FormData(event.target as HTMLFormElement).entries()
+                new FormData(event.target as HTMLFormElement).entries(),
               );
 
               const promise = form.post(
@@ -47,7 +47,7 @@ export default function Talk() {
                 {
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify(values),
-                }
+                },
               );
 
               await toast
@@ -106,24 +106,22 @@ export default function Talk() {
             </Email>
             <ListItem
               icon={SiDiscord}
-              text={
-                lanyard && (
-                  <span className="flex items-center space-x-1">
-                    <span>
-                      {lanyard.discord_user.username}#
-                      {lanyard.discord_user.discriminator}
-                    </span>
-
-                    <span
-                      className={`${
-                        statusMap[
-                          lanyard.discord_status as keyof typeof statusMap
-                        ]
-                      } h-2 w-2 inline-block rounded-full`}
-                    />
+              text={lanyard && (
+                <span className="flex items-center space-x-1">
+                  <span>
+                    {lanyard.discord_user.username}#
+                    {lanyard.discord_user.discriminator}
                   </span>
-                )
-              }
+
+                  <span
+                    className={`${
+                      statusMap[
+                        lanyard.discord_status as keyof typeof statusMap
+                      ]
+                    } h-2 w-2 inline-block rounded-full`}
+                  />
+                </span>
+              )}
             />
 
             <Twitter>

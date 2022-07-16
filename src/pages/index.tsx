@@ -4,7 +4,7 @@ import { GitHubPinnedRepo, useGitHubPinnedRepos } from "use-github";
 import { SiGithub, SiTwitter } from "react-icons/si";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 
-import { COUNTRY, DISCORD_ID, NAME, USERNAME, age } from "../util";
+import { age, COUNTRY, DISCORD_ID, NAME, USERNAME } from "../util";
 
 import { ProjectCard } from "../components/project-card";
 import { Technologies } from "../container/technologies";
@@ -64,14 +64,15 @@ const Index: NextPage<Props> = (props) => {
         </div>
 
         <h1 className="text-3xl font-bold sm:text-4xl md:text-6xl">
-          Hey, I'm <span className="text-blue-700 dark:text-white">{NAME}</span>{" "}
+          Hey, I'm <span className="text-blue-700 dark:text-white">{NAME}</span>
+          {" "}
           ✌️
         </h1>
 
         <p className="opacity-80">
-          I'm a ~{age.toPrecision(7)} year old software engineer from {COUNTRY}.
-          I'm interested in full stack web development, hackathons, and system
-          programming.
+          I'm a ~{age.toPrecision(7)} year old software engineer from{" "}
+          {COUNTRY}. I'm interested in full stack web development, hackathons,
+          and system programming.
         </p>
       </div>
 
@@ -79,12 +80,10 @@ const Index: NextPage<Props> = (props) => {
         <h1 className="text-2xl font-bold sm:text-3xl">What do I do? 💭</h1>
         <p className="opacity-80">
           Below are some of the more popular open source projects I've worked
-          on. In total, the following repos have earned me{" "}
-          {projects.reduce(
+          on. In total, the following repos have earned me {projects.reduce(
             (acc, project) => acc + parseInt(project.stars, 10),
-            0
-          )}{" "}
-          stars! Thank you! 💖
+            0,
+          )} stars! Thank you! 💖
         </p>
 
         <div className="grid grid-cols-1 auto-cols-max gap-1 sm:grid-cols-2 sm:gap-3">
@@ -93,9 +92,6 @@ const Index: NextPage<Props> = (props) => {
           ))}
         </div>
 
-        <br />
-
-        <Technologies />
       </div>
     </>
   );
@@ -103,13 +99,13 @@ const Index: NextPage<Props> = (props) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const pinnedReposResponse = await fetch(
-    `https://gh-pinned-repos.egoist.sh/?username=${USERNAME}`
+    `https://gh-pinned-repos.egoist.sh/?username=${USERNAME}`,
   );
 
   const pinnedRepos = await pinnedReposResponse.json();
 
   const lanyard = await fetch(
-    `https://api.lanyard.rest/v1/users/${DISCORD_ID}`
+    `https://api.lanyard.rest/v1/users/${DISCORD_ID}`,
   );
 
   const lanyardBody = (await lanyard.json()) as LanyardResponse;

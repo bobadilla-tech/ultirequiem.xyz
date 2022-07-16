@@ -33,8 +33,8 @@ const AboutPage: NextPage = () => {
       </div>
       <div className="space-y-4">
         <p>
-          Hey! I'm Eliaz, a full-stack engineer from {COUNTRY}. I care about
-          performant, and accessible code.
+          Hey! I'm Eliaz, a full-stack engineer from{" "}
+          {COUNTRY}. I care about performant, and accessible code.
         </p>
 
         <p>
@@ -44,9 +44,9 @@ const AboutPage: NextPage = () => {
         </p>
 
         <p>
-          Recently I have been working on my online presence,
-          mostly only Twitter, so if you want to know what I'm doing check it
-          out! <a href="https://twitter.com/UltiRequiem">@UltiRequiem</a> 🚀
+          Recently I have been working on my online presence, mostly only
+          Twitter, so if you want to know what I'm doing check it out!{" "}
+          <a href="https://twitter.com/UltiRequiem">@UltiRequiem</a> 🚀
         </p>
       </div>
     </div>

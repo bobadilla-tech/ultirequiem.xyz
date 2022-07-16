@@ -1,6 +1,6 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
-import { FULL_NAME, PFP, COUNTRY } from "../util";
+import { COUNTRY, FULL_NAME, PFP } from "../util";
 
 export default class Page extends Document {
   render() {

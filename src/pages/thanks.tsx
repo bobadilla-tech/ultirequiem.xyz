@@ -8,8 +8,8 @@ const Thanks: NextPage = () => {
       <h1 className="text-5xl font-bold">Thank you!</h1>
       <p className="opacity-80">
         I'll be in touch soon. Thanks for reaching out! In the meantime, feel
-        free to checkout my <GitHub /> or <Twitter />, there's some cool stuff
-        there 🚀
+        free to checkout my <GitHub /> or{" "}
+        <Twitter />, there's some cool stuff there 🚀
         <br />
         <br />– {NAME}
       </p>

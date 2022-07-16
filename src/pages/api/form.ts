@@ -26,9 +26,8 @@ export default api({
             fields: [
               {
                 name: "ip",
-                value:
-                  req.headers["x-forwarded-for"] ??
-                  req.socket.remoteAddress??
+                value: req.headers["x-forwarded-for"] ??
+                  req.socket.remoteAddress ??
                   "unknown!?",
               },
             ],
@@ -40,7 +39,7 @@ export default api({
     if (result.status >= 400) {
       throw new NextkitClientException(
         result.status,
-        "Error sending notification"
+        "Error sending notification",
       );
     }
 

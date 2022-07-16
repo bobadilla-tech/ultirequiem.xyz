@@ -8,14 +8,13 @@ import NProgress from "nprogress";
 import { Toaster } from "react-hot-toast";
 import { Squash } from "hamburger-react";
 
-import { Song } from "../components";
 import {
+  CURRENT_YEAR,
   DISCORD_ID,
   FULL_NAME,
+  loadCursor,
   POSITION,
   USERNAME,
-  CURRENT_YEAR,
-  loadCursor,
 } from "../util/";
 import { NavLink, navLinkClassName } from "../container";
 
@@ -102,6 +101,10 @@ export default function App({ Component, pageProps, router }: AppProps) {
         /talk
       </NavLink>
 
+      <NavLink href="/technologies" closeMenu={closeMenu}>
+        /technologies
+      </NavLink>
+
       <li>
         <a
           target="_blank"
@@ -173,10 +176,6 @@ export default function App({ Component, pageProps, router }: AppProps) {
                   color="currentColor"
                 />
               </button>
-
-              <div className="overflow-hidden py-2 px-1">
-                <Song />
-              </div>
             </div>
           </div>
         </div>
@@ -186,10 +185,6 @@ export default function App({ Component, pageProps, router }: AppProps) {
             <nav className="flex-1">
               <ul className="flex space-x-4">{navLinks}</ul>
             </nav>
-
-            <div className="overflow-hidden py-2 px-1">
-              <Song />
-            </div>
           </div>
 
           <main className="mx-auto space-y-12 max-w-3xl md:py-24">

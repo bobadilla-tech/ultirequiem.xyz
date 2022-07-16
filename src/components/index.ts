@@ -1,3 +1,3 @@
-export * from "./list-item"
-export * from "./project-card"
-export * from "./song"
+export * from "./list-item";
+export * from "./project-card";
+export * from "./song";
