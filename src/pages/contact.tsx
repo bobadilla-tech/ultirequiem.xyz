@@ -1,11 +1,7 @@
 import { useRouter } from "next/router";
 import { toast } from "react-hot-toast";
-
-import { ListItem, TimeStatus } from "../components";
+import { TimeStatus } from "../components";
 import { EMAIL, form, TELEPHONE_NUMBER, USERNAME } from "../util";
-import { Email, Twitter } from "../container/socials";
-
-import { HiOutlineMail } from "react-icons/hi";
 import { RiPhoneLine, RiSendPlane2Line } from "react-icons/ri";
 import { SiTwitter } from "react-icons/si";
 import ContactLink from "../components/contact-link";
@@ -18,7 +14,7 @@ export default function Talk() {
     <div className="space-y-4">
       <h1 className="text-2xl font-bold sm:text-3xl">Let's talk 💬</h1>
       <p>
-        Leave a message on the form below or get in touch through Twitter or
+        Have an inquiry, or want to connect? Leave a message on the form below or get in touch through Twitter or
         email.
       </p>
 
