@@ -28,10 +28,10 @@ export const ContactLink = ({
     config: { mass: 1, tension: 350, friction: 40 },
   }));
 
-  const CustomLink = link ? Link : "p";
+  const CustomLink = link ? Link : "span";
 
   return (
-    <CustomLink href={link} passHref>
+    <CustomLink href={link} >
       <animated.a
         target="_blank"
         rel="noreferrer noopener"

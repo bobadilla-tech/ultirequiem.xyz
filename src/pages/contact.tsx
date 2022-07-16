@@ -12,9 +12,9 @@ export default function Talk() {
 
   return (
     <div className="space-y-4">
-      <h1 className="text-2xl font-bold sm:text-3xl">Let's talk 💬</h1>
+      <h1 className="text-2xl font-bold sm:text-3xl">Let's connect 🔗</h1>
       <p>
-        Have an inquiry, or want to connect? Leave a message on the form below or get in touch through Twitter or
+        Leave a message on the form below or get in touch through Twitter or
         email.
       </p>
 
@@ -30,7 +30,7 @@ export default function Talk() {
               event.preventDefault();
 
               const values = Object.fromEntries(
-                new FormData(event.target as HTMLFormElement).entries(),
+                new FormData(event.target as HTMLFormElement).entries()
               );
 
               const promise = form.post(
@@ -38,7 +38,7 @@ export default function Talk() {
                 {
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify(values),
-                },
+                }
               );
 
               await toast

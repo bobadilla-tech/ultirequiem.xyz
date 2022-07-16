@@ -185,7 +185,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
             <Component {...pageProps} />
           </main>
 
-          <footer className="p-4 py-10 mx-auto mt-20 max-w-3xl border-t-2 border-gray-900/10 dark:border-white/10 opacity-50">
+          <footer className="p-4 py-5 mx-auto mt-10 max-w-3xl border-t-2 border-gray-900/10 dark:border-white/10 opacity-50">
             <h1 className="text-3xl font-bold">{FULL_NAME}</h1>
             <p>
               {POSITION} • {CURRENT_YEAR}
