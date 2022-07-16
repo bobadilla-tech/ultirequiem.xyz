@@ -185,7 +185,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
             </nav>
           </div>
 
-          <main className="mx-auto space-y-12 max-w-3xl md:py-24">
+          <main className="mx-auto space-y-12 max-w-3xl md:py-24 text-black dark:text-white">
             <Component {...pageProps} />
           </main>
 

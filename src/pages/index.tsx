@@ -4,13 +4,7 @@ import { GitHubPinnedRepo, useGitHubPinnedRepos } from "use-github";
 import { SiGithub, SiTwitter } from "react-icons/si";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 
-import {
-  DISCORD_ID,
-  lanyardData,
-  NAME,
-  pinnedRepos,
-  USERNAME,
-} from "../util";
+import { DISCORD_ID, lanyardData, NAME, pinnedRepos, USERNAME } from "../util";
 
 import { ProjectCard } from "../components/project-card";
 
@@ -34,6 +28,7 @@ const Index: NextPage<Props> = (props) => {
     <>
       <div className="space-y-4">
         <div className="flex items-center space-x-3">
+
           <GitHub>
             <SiGithub className="w-7 h-7" />
             <span className="sr-only">GitHub Profile</span>
