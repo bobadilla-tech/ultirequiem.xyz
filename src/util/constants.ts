@@ -10,3 +10,4 @@ export const GITHUB = `https://github.com/${USERNAME}`;
 export const TWITTER = `https://twitter.com/${USERNAME}`;
 export const LINKEDIN = `https://www.linkedin.com/in/${USERNAME}`;
 export const EMAIL = "eliaz.bobadilladev@gmail.com";
+export const TELEPHONE_NUMBER = "+51 923-531-893";

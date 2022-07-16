@@ -1,32 +1,23 @@
 import { useRouter } from "next/router";
 import { toast } from "react-hot-toast";
-import { useLanyard } from "use-lanyard";
 
 import { ListItem } from "../components";
-import { DISCORD_ID, EMAIL, form, USERNAME } from "../util";
+import { EMAIL, form, TELEPHONE_NUMBER, USERNAME } from "../util";
 import { Email, Twitter } from "../container/socials";
 
 import { HiOutlineMail } from "react-icons/hi";
 import { RiPhoneLine, RiSendPlane2Line } from "react-icons/ri";
-import { SiDiscord, SiTwitter } from "react-icons/si";
-
-const statusMap = {
-  online: "bg-green-500",
-  idle: "bg-yellow-500",
-  dnd: "bg-red-500",
-  offline: "bg-gray-500",
-};
+import { SiTwitter } from "react-icons/si";
 
 export default function Talk() {
   const router = useRouter();
-  const { data: lanyard } = useLanyard(DISCORD_ID);
 
   return (
     <div className="space-y-4">
       <h1 className="text-2xl font-bold sm:text-3xl">Let's talk 💬</h1>
       <p>
-        Leave a message on the form below or get in touch through Discord,
-        Twitter or email.
+        Leave a message on the form below or get in touch through Twitter or
+        Email.
       </p>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -39,7 +30,7 @@ export default function Talk() {
               event.preventDefault();
 
               const values = Object.fromEntries(
-                new FormData(event.target as HTMLFormElement).entries(),
+                new FormData(event.target as HTMLFormElement).entries()
               );
 
               const promise = form.post(
@@ -47,7 +38,7 @@ export default function Talk() {
                 {
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify(values),
-                },
+                }
               );
 
               await toast
@@ -76,7 +67,7 @@ export default function Talk() {
 
             <label htmlFor="body" className="block">
               <span className="text-sm font-bold tracking-wide dark:text-white uppercase select-none text-opacity-50">
-                Your message
+                Message
               </span>
 
               <textarea
@@ -104,30 +95,14 @@ export default function Talk() {
             <Email>
               <ListItem icon={HiOutlineMail} text={EMAIL} />
             </Email>
-            <ListItem
-              icon={SiDiscord}
-              text={lanyard && (
-                <span className="flex items-center space-x-1">
-                  <span>
-                    {lanyard.discord_user.username}#
-                    {lanyard.discord_user.discriminator}
-                  </span>
-
-                  <span
-                    className={`${
-                      statusMap[
-                        lanyard.discord_status as keyof typeof statusMap
-                      ]
-                    } h-2 w-2 inline-block rounded-full`}
-                  />
-                </span>
-              )}
-            />
+            <br />
 
             <Twitter>
               <ListItem icon={SiTwitter} text={USERNAME} />
             </Twitter>
-            <ListItem icon={RiPhoneLine} text="+51 923-531-893" />
+
+            <br />
+            <ListItem icon={RiPhoneLine} text={TELEPHONE_NUMBER} />
           </ul>
         </div>
       </div>
