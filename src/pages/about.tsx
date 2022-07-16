@@ -2,7 +2,6 @@ import Image from "next/image";
 
 import type { NextPage } from "next";
 
-import GitHubContributions from "../../public/github_contributions.png";
 import PlatziDiploma from "../../public/me_platzi.jpg";
 import { COUNTRY } from "../util";
 

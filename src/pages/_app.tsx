@@ -64,7 +64,9 @@ export default function App({ Component, pageProps, router }: AppProps) {
 
     setMenuOpen(false);
 
-    void new Audio("/pop.mp3").play().catch(() => null);
+    const pop = new Audio("/pop.mp3");
+
+    void pop.play().catch(() => undefined);
   }, [router.pathname]);
 
   useEffect(() => {
@@ -99,10 +101,6 @@ export default function App({ Component, pageProps, router }: AppProps) {
 
       <NavLink href="/talk" closeMenu={closeMenu}>
         /talk
-      </NavLink>
-
-      <NavLink href="/technologies" closeMenu={closeMenu}>
-        /technologies
       </NavLink>
 
       <li>
