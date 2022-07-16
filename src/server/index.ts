@@ -11,8 +11,7 @@ export const api = createAPI({
   },
 
   async getContext() {
-    return {
-    };
+    return {};
   },
 });
 

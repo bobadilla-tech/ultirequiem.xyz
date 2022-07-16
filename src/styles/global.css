@@ -45,7 +45,7 @@ code {
 }
 
 a {
-  @apply dark:text-white cursor-pointer underline;
+  @apply dark:text-white cursor-pointer;
 }
 
 img {

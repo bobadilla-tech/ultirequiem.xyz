@@ -8,6 +8,8 @@ import { Email, Twitter } from "../container/socials";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiPhoneLine, RiSendPlane2Line } from "react-icons/ri";
 import { SiTwitter } from "react-icons/si";
+import ContactLink from "../components/contact-link";
+import { FiMail } from "react-icons/fi";
 
 export default function Talk() {
   const router = useRouter();
@@ -17,7 +19,7 @@ export default function Talk() {
       <h1 className="text-2xl font-bold sm:text-3xl">Let's talk 💬</h1>
       <p>
         Leave a message on the form below or get in touch through Twitter or
-        Email.
+        email.
       </p>
 
       <TimeStatus />
@@ -32,7 +34,7 @@ export default function Talk() {
               event.preventDefault();
 
               const values = Object.fromEntries(
-                new FormData(event.target as HTMLFormElement).entries()
+                new FormData(event.target as HTMLFormElement).entries(),
               );
 
               const promise = form.post(
@@ -40,7 +42,7 @@ export default function Talk() {
                 {
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify(values),
-                }
+                },
               );
 
               await toast
@@ -94,17 +96,29 @@ export default function Talk() {
 
         <div>
           <ul className="space-y-2 list-disc list-inside">
-            <Email>
-              <ListItem icon={HiOutlineMail} text={EMAIL} />
-            </Email>
+            <br />
+            <ContactLink
+              name={EMAIL}
+              icon={<FiMail className="w-6 h-6 text-gray-400" />}
+              link={`mailto:${EMAIL}`}
+              borderColor="hover:border-gray-400/50"
+            />
             <br />
 
-            <Twitter>
-              <ListItem icon={SiTwitter} text={USERNAME} />
-            </Twitter>
+            <ContactLink
+              name="@ultirequiem"
+              icon={<SiTwitter className="w-6 h-6 text-[#1DA1F2]" />}
+              link={`https://twitter.com/${USERNAME}`}
+              borderColor="hover:border-[#1DA1F2]/50"
+            />
 
             <br />
-            <ListItem icon={RiPhoneLine} text={TELEPHONE_NUMBER} />
+
+            <ContactLink
+              name={TELEPHONE_NUMBER}
+              icon={<RiPhoneLine className="w-6 h-6 text-gray-400" />}
+              borderColor="hover:border-gray-400/50"
+            />
           </ul>
         </div>
       </div>
