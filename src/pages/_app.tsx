@@ -99,8 +99,8 @@ export default function App({ Component, pageProps, router }: AppProps) {
         /about
       </NavLink>
 
-      <NavLink href="/talk" closeMenu={closeMenu}>
-        /talk
+      <NavLink href="/contact" closeMenu={closeMenu}>
+        /contact
       </NavLink>
 
       <li>

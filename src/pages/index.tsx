@@ -1,12 +1,10 @@
-import { LanyardError, useLanyard } from "use-lanyard";
+import { useLanyard } from "use-lanyard";
 import { GitHubPinnedRepo, useGitHubPinnedRepos } from "use-github";
 
 import { SiGithub, SiTwitter } from "react-icons/si";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 
 import {
-  age,
-  COUNTRY,
   DISCORD_ID,
   lanyardData,
   NAME,
@@ -17,7 +15,7 @@ import {
 import { ProjectCard } from "../components/project-card";
 
 import type { GetStaticProps, NextPage } from "next";
-import type { Data, LanyardResponse } from "use-lanyard";
+import type { Data } from "use-lanyard";
 import { GitHub, Twitter } from "../container/socials";
 
 interface Props {
@@ -76,8 +74,8 @@ const Index: NextPage<Props> = (props) => {
         </h1>
 
         <p className="opacity-80">
-          I'm a ~{age.toPrecision(7)} year old software engineer from {COUNTRY}.
-          I'm interested in Web Development and Marketing.
+          I'm a Software Engineer and Writer, who is passionate about building
+          products that improve and connect the lives of others.
         </p>
       </div>
 

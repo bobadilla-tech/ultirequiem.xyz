@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { toast } from "react-hot-toast";
 
-import { ListItem } from "../components";
+import { ListItem, TimeStatus } from "../components";
 import { EMAIL, form, TELEPHONE_NUMBER, USERNAME } from "../util";
 import { Email, Twitter } from "../container/socials";
 
@@ -19,6 +19,8 @@ export default function Talk() {
         Leave a message on the form below or get in touch through Twitter or
         Email.
       </p>
+
+      <TimeStatus />
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="p-5 bg-gray-100 dark:bg-white/5 rounded-lg">
