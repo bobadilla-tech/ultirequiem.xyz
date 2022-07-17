@@ -1,7 +1,13 @@
 import { useLanyard } from "use-lanyard";
 import { SiGithub, SiTwitter } from "react-icons/si";
 import { HiOutlineLocationMarker } from "react-icons/hi";
-import { DISCORD_ID, lanyardData, NAME, timeToFinishHighSchool } from "../util";
+import {
+  DISCORD_ID,
+  lanyardData,
+  NAME,
+  age,
+  timeToFinishHighSchool,
+} from "../util";
 
 import type { GetStaticProps, NextPage } from "next";
 import type { Data } from "use-lanyard";
@@ -11,10 +17,19 @@ interface Props {
   lanyard: Data;
 }
 
-const OneHundredDays = ({ challenge }: { challenge: string }) => (
+const OneHundredDays = ({
+  challenge,
+  link,
+}: {
+  challenge: string;
+  link?: string;
+}) => (
   <a
     className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
-    href={`https://twitter.com/search?q=(from%3Aultirequiem)%20%23100DaysOf${challenge}`}
+    href={
+      link ??
+      `https://twitter.com/search?q=(from%3Aultirequiem)%20%23100DaysOf${challenge}`
+    }
   >
     {`#100DaysOf${challenge}`}
   </a>
@@ -22,6 +37,9 @@ const OneHundredDays = ({ challenge }: { challenge: string }) => (
 
 const RunningChallenge = () => <OneHundredDays challenge="Running" />;
 const CodingChallenge = () => <OneHundredDays challenge="Code" />;
+const DrawingChallenge = () => (
+  <OneHundredDays challenge="Drawing" link="https://instagram.com/ulti.draws" />
+);
 
 const Index: NextPage<Props> = (props) => {
   const { data: lanyard } = useLanyard(DISCORD_ID, {
@@ -67,15 +85,13 @@ const Index: NextPage<Props> = (props) => {
 
       <h1 className="text-3xl font-bold sm:text-4xl md:text-6xl">
         Hey, I'm <span className="text-blue-700 dark:text-white">{NAME}</span>{" "}
-        ✌️
+        👋
       </h1>
 
       <p className="opacity-80">
-        I'm a <b>Software Engineer</b> and <b>Writter</b>, who is passionate
-        about building products that improve and connect lives 🚀
+        I'm a ~{age.toFixed(7)} <b>Software Engineer</b> and <b>Writter</b>, who
+        is passionate about building products that improve and connect lives 🚀
       </p>
-
-      <h1 className="text-2xl font-bold sm:text-3xl">A little about me 💬</h1>
 
       <p className="opacity-80">
         I started studying <b>Web Development</b> on my own when I entered high
@@ -89,8 +105,6 @@ const Index: NextPage<Props> = (props) => {
         world of <b>Marketing</b>, <b>Selling</b> & <b>Writing</b> online.
       </p>
 
-      <h1 className="text-2xl font-bold sm:text-3xl">What am I doing? 💭</h1>
-
       <p className="opacity-80">
         I'm focused on building an audience, contributing to open source, and
         participating in hackathons ✨
@@ -98,13 +112,20 @@ const Index: NextPage<Props> = (props) => {
 
       <p className="opacity-80">
         I'm also participating in <RunningChallenge /> and <CodingChallenge />{" "}
-        on Twitter and upload a daily drawing to Instagram.
+        on Twitter and at <DrawingChallenge /> on Instagram.
       </p>
 
       <p className="opacity-80">
-        After completing my high school, in {timeToFinishHighSchool} days, I
-        plan to study Computer Science, so I'm preparing for that as well 🧑‍🎓
+        After completing my high school,{" "}
+        <b> in {timeToFinishHighSchool} days</b>, I plan to study Computer
+        Science, so I'm preparing for that as well 🧑‍🎓
       </p>
+
+      <br />
+
+      <a className="text-3xl text-blue-600 underline" href="/contact">
+        Let's connect!
+      </a>
     </div>
   );
 };
