@@ -1,7 +1,7 @@
 import { useLanyard } from "use-lanyard";
 import { SiGithub, SiTwitter } from "react-icons/si";
 import { HiOutlineLocationMarker } from "react-icons/hi";
-import { DISCORD_ID, lanyardData, NAME } from "../util";
+import { DISCORD_ID, lanyardData, NAME, timeToFinishHighSchool } from "../util";
 
 import type { GetStaticProps, NextPage } from "next";
 import type { Data } from "use-lanyard";
@@ -11,21 +11,20 @@ interface Props {
   lanyard: Data;
 }
 
-const Writter = () => {
+const HastashText = ({ text, link }: { text: string; link: string }) => {
   return (
-    <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-600">
-      Writter
-    </span>
+    <a className="" href={link}>
+      {text}
+    </a>
   );
 };
 
-const Engineer = () => {
-  return (
-    <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-600">
-      Software Engineer
-    </span>
-  );
-};
+const OneHundredDaysRunning = (
+  <HastashText
+    text="#100DaysOfRunning"
+    link="https://twitter.com/search?q=(from%3Aultirequiem)%20%23100DaysOfRunning"
+  />
+);
 
 const Index: NextPage<Props> = (props) => {
   const { data: lanyard } = useLanyard(DISCORD_ID, {
@@ -70,31 +69,48 @@ const Index: NextPage<Props> = (props) => {
       </div>
 
       <h1 className="text-3xl font-bold sm:text-4xl md:text-6xl">
-        Hey, I'm <span className="text-blue-700 dark:text-white">{NAME}</span>
-        {" "}
+        Hey, I'm <span className="text-blue-700 dark:text-white">{NAME}</span>{" "}
         ✌️
       </h1>
 
       <p className="opacity-80">
-        I'm a <Engineer /> and{" "}
-        <Writter />, who is passionate about building products that improve and
-        connect the lives of others.
+        I'm a <b>Software Engineer</b> and <b>Writter</b>, who is passionate
+        about building products that improve and connect lives 🚀
       </p>
-
-      <br />
 
       <h1 className="text-2xl font-bold sm:text-3xl">A little about me 💬</h1>
 
       <p className="opacity-80">
-        I started studying <b>Web Development</b>{" "}
-        on my own when I entered high school, I liked the field a lot and little
-        by little I expanded my knowledge to different areas of technology such
-        as <b>IA</b>, <b>Blockchain</b>, and <b>System programming</b>.
+        I started studying <b>Web Development</b> on my own when I entered high
+        school, I liked the field a lot and little by little I expanded my
+        knowledge to different areas of technology such as <b>IA</b>,{" "}
+        <b>Blockchain</b>, and <b>System programming</b>.
       </p>
 
       <p className="opacity-80">
         In the search to commercialize my knowledge I discovered the exciting
         world of <b>Marketing</b>, <b>Selling</b> & <b>Writing</b> online.
+      </p>
+
+      <h1 className="text-2xl font-bold sm:text-3xl">What am I doing? 💭</h1>
+
+      <p className="opacity-80">
+        I'm focused on building an audience, continuing to contribute to open
+        source, and participating in hackathons ✨
+      </p>
+
+      <p className="opacity-80">
+        I am also participating in challenges like{" "}
+        <HastashText
+          text="#100DaysOfRunning"
+          link="https://twitter.com/search?q=(from%3Aultirequiem)%20%23100DaysOfRunning"
+        />{" "}
+        or #100DaysOfCode on Twitter and upload a daily drawing to Instagram.
+      </p>
+
+      <p className="opacity-80">
+        After completing my high school, in {timeToFinishHighSchool} days, I
+        plan to study Computer Science, so I am preparing for that as well 🧑‍🎓
       </p>
     </div>
   );

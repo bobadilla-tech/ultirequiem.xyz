@@ -9,3 +9,9 @@ export const DAY = HOUR * 24;
 export const YEAR = DAY * 365;
 
 export const age = ageMilliseconds / YEAR;
+export const timeToFinishHighSchool = Math.abs(
+  ~(
+    (new Date("30 December 2023 00:07:00 GMT").getTime() - Date.now()) /
+    (1000 * 3600 * 24)
+  )
+);

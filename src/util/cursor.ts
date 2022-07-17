@@ -29,8 +29,10 @@ export function loadCursor<Element extends HTMLElement>(ball: Element) {
   loop();
 
   function touch(event: TouchEvent) {
-    x = event.touches[0].pageX;
-    y = event.touches[0].pageY;
+    const eventTouch = event.touches[0];
+
+    x = eventTouch.pageX;
+    y = eventTouch.pageY;
   }
 
   function mousemove(event: MouseEvent) {

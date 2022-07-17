@@ -21,14 +21,13 @@ import { NavLink, navLinkClassName } from "../container";
 import { AnimatePresence, motion } from "framer-motion";
 
 import "../styles/global.css";
-import "react-tippy/dist/tippy.css";
 import "nprogress/nprogress.css";
 
 import type { AppProps } from "next/app";
 
-Router.events.on("routeChangeStart", () => NProgress.start());
-Router.events.on("routeChangeComplete", () => NProgress.done());
-Router.events.on("routeChangeError", () => NProgress.done());
+Router.events.on("routeChangeStart", NProgress.start);
+Router.events.on("routeChangeComplete", NProgress.done);
+Router.events.on("routeChangeError", NProgress.done);
 
 export default function App({ Component, pageProps, router }: AppProps) {
   const [mobileMenuOpen, setMenuOpen] = useState(false);
@@ -185,7 +184,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
             <Component {...pageProps} />
           </main>
 
-          <footer className="p-4 py-5 mx-auto mt-10 max-w-3xl border-t-2 border-gray-900/10 dark:border-white/10 opacity-50">
+          <footer className="p-4 py-5 mx-auto md:mt-0 mt-5 max-w-3xl border-t-2 border-gray-900/10 dark:border-white/10 opacity-50">
             <h1 className="text-3xl font-bold">{FULL_NAME}</h1>
             <p>
               {POSITION} • {CURRENT_YEAR}
