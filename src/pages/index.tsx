@@ -11,20 +11,17 @@ interface Props {
   lanyard: Data;
 }
 
-const HastashText = ({ text, link }: { text: string; link: string }) => {
-  return (
-    <a className="" href={link}>
-      {text}
-    </a>
-  );
-};
-
-const OneHundredDaysRunning = (
-  <HastashText
-    text="#100DaysOfRunning"
-    link="https://twitter.com/search?q=(from%3Aultirequiem)%20%23100DaysOfRunning"
-  />
+const OneHundredDays = ({ challenge }: { challenge: string }) => (
+  <a
+    className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+    href={`https://twitter.com/search?q=(from%3Aultirequiem)%20%23100DaysOf${challenge}`}
+  >
+    {`#100DaysOf${challenge}`}
+  </a>
 );
+
+const RunningChallenge = () => <OneHundredDays challenge="Running" />;
+const CodingChallenge = () => <OneHundredDays challenge="Code" />;
 
 const Index: NextPage<Props> = (props) => {
   const { data: lanyard } = useLanyard(DISCORD_ID, {
@@ -95,22 +92,18 @@ const Index: NextPage<Props> = (props) => {
       <h1 className="text-2xl font-bold sm:text-3xl">What am I doing? 💭</h1>
 
       <p className="opacity-80">
-        I'm focused on building an audience, continuing to contribute to open
-        source, and participating in hackathons ✨
+        I'm focused on building an audience, contributing to open source, and
+        participating in hackathons ✨
       </p>
 
       <p className="opacity-80">
-        I am also participating in challenges like{" "}
-        <HastashText
-          text="#100DaysOfRunning"
-          link="https://twitter.com/search?q=(from%3Aultirequiem)%20%23100DaysOfRunning"
-        />{" "}
-        or #100DaysOfCode on Twitter and upload a daily drawing to Instagram.
+        I'm also participating in <RunningChallenge /> and <CodingChallenge />{" "}
+        on Twitter and upload a daily drawing to Instagram.
       </p>
 
       <p className="opacity-80">
         After completing my high school, in {timeToFinishHighSchool} days, I
-        plan to study Computer Science, so I am preparing for that as well 🧑‍🎓
+        plan to study Computer Science, so I'm preparing for that as well 🧑‍🎓
       </p>
     </div>
   );
