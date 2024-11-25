@@ -101,9 +101,7 @@ const Index: NextPage<Props> = (props) => {
       </p>
       <br />
 
-      <a className="text-3xl text-blue-600 underline" href="/contact">
-        Let's connect!
-      </a>
+  
     </div>
   );
 };
