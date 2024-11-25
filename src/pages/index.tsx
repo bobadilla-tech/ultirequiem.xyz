@@ -95,32 +95,10 @@ const Index: NextPage<Props> = (props) => {
 
       <p className="opacity-80">
         I started studying <b>Web Development</b> on my own when I entered high
-        school, I liked the field a lot and little by little I expanded my
+        school, I liked the field a lot, and little by little I expanded my
         knowledge to different areas of technology such as <b>IA</b>,{" "}
         <b>Blockchain</b>, and <b>System programming</b>.
       </p>
-
-      <p className="opacity-80">
-        In the search to commercialize my knowledge I discovered the exciting
-        world of <b>Marketing</b>, <b>Selling</b> & <b>Writing</b> online.
-      </p>
-
-      <p className="opacity-80">
-        I'm focused on building an audience, contributing to open source, and
-        participating in hackathons ✨
-      </p>
-
-      <p className="opacity-80">
-        I'm also participating in <RunningChallenge /> and <CodingChallenge />{" "}
-        on Twitter and at <DrawingChallenge /> on Instagram.
-      </p>
-
-      <p className="opacity-80">
-        After completing my high school,{" "}
-        <b> in {timeToFinishHighSchool} days</b>, I plan to study Computer
-        Science, so I'm preparing for that as well 🧑‍🎓
-      </p>
-
       <br />
 
       <a className="text-3xl text-blue-600 underline" href="/contact">
