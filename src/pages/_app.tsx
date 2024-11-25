@@ -101,7 +101,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       <li>
         <a
           target="_blank"
-          href="https://blog.ultirequiem.com"
+          href="https://ultirequiem.hashnode.dev/ "
           rel="noreferrer"
           className={navLinkClassName}
         >
