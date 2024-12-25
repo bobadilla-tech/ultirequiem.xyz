@@ -88,18 +88,7 @@ const Index: NextPage<Props> = (props) => {
         👋
       </h1>
 
-      <p className="opacity-80">
-        I'm a ~{age.toFixed(7)} <b>Software Engineer</b> and <b>Writter</b>, who
-        is passionate about building products that improve and connect lives 🚀
-      </p>
-
-      <p className="opacity-80">
-        I started studying <b>Web Development</b> on my own when I entered high
-        school, I liked the field a lot, and little by little I expanded my
-        knowledge to different areas of technology such as <b>IA</b>,{" "}
-        <b>Blockchain</b>, and <b>System programming</b>.
-      </p>
-      <br />
+  TODO
 
   
     </div>
