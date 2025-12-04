@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import { motion } from "framer-motion";
 import { FiMail, FiPhone, FiGlobe, FiGithub, FiDownload, FiBriefcase, FiAward, FiCode } from "react-icons/fi";
+import { SiYoutube } from "react-icons/si";
 
 const CVPage: NextPage = () => {
   const container = {
@@ -59,6 +60,7 @@ const CVPage: NextPage = () => {
             <ContactBadge href="tel:+51923531893" icon={FiPhone} text="+51 923 531 893" />
             <ContactBadge href="https://ultirequiem.xyz" icon={FiGlobe} text="ultirequiem.xyz" external />
             <ContactBadge href="https://github.com/ultirequiem" icon={FiGithub} text="ultirequiem" external />
+            <ContactBadge href="https://youtube.com/@ultirequiem" icon={SiYoutube} text="@ultirequiem" external />
           </motion.div>
         </div>
 
@@ -94,11 +96,11 @@ const CVPage: NextPage = () => {
         <div className="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 border border-blue-200 dark:border-blue-800">
           <p className="text-lg leading-relaxed text-gray-800 dark:text-gray-200">
             Senior Full-Stack AI Software Engineer with <strong className="text-blue-600 dark:text-blue-400">6+ years</strong> of
-            experience building scalable applications and AI-powered solutions. Expertise in modern web technologies,
-            microservices architecture, and cloud infrastructure. Proven track record of delivering enterprise applications
-            with Next.js, React, Node.js, and Go. Active open-source contributor with{" "}
-            <strong className="text-purple-600 dark:text-purple-400">1M+ combined downloads</strong> across npm, PyPI, and
-            crates.io.
+            experience building scalable applications and AI-powered solutions. End-to-end builder who has shipped full platforms
+            like <a href="https://compilestrength.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">CompileStrength</a> and
+            owns <a href="https://bobadilla.tech" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Bobadilla Tech</a>, a top LATAM engineering agency.
+            Expertise in modern web technologies, microservices architecture, and cloud infrastructure. Active open-source contributor with{" "}
+            <strong className="text-purple-600 dark:text-purple-400">1M+ combined downloads</strong> across npm, PyPI, and crates.io.
           </p>
         </div>
       </motion.section>
@@ -131,14 +133,14 @@ const CVPage: NextPage = () => {
             ]}
           />
           <ExperienceCard
-            title="Full-Stack AI Software Developer"
+            title="LLM Engineer & AI Prompt Specialist"
             company="Outlier"
             location="San Francisco (Remote)"
-            period="2024"
+            period="2023 - 2024"
             achievements={[
-              "Created custom prompts to surface and correct errors in LLMs, improving model accuracy",
+              "Created custom prompts to surface and correct errors in LLMs, improving model accuracy and performance",
               "Taught models to implement projects from scratch with various technologies",
-              "Ensured good practices were used, focusing on end-user satisfaction",
+              "Ensured good practices were used, focusing on end-user satisfaction and code quality",
             ]}
           />
           <ExperienceCard
@@ -204,8 +206,20 @@ const CVPage: NextPage = () => {
 
       {/* Projects */}
       <motion.section variants={item} className="space-y-6">
-        <SectionTitle>Featured Projects</SectionTitle>
+        <SectionTitle>Featured Projects & Platforms</SectionTitle>
         <div className="grid md:grid-cols-2 gap-6">
+          <ProjectCard
+            name="Bobadilla Tech"
+            url="bobadilla.tech"
+            description="Top LATAM engineering agency. MVP development in days, not months."
+            gradient="from-indigo-500 to-purple-600"
+          />
+          <ProjectCard
+            name="CompileStrength"
+            url="compilestrength.com"
+            description="AI-powered training programs built on exercise science and periodization."
+            gradient="from-red-500 to-pink-600"
+          />
           <ProjectCard
             name="Sergif"
             url="sergif.ultirequiem.xyz"
