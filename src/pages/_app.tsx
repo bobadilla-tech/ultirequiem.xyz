@@ -94,6 +94,10 @@ export default function App({ Component, pageProps, router }: AppProps) {
         Home
       </NavLink>
 
+      <NavLink href="/cv" closeMenu={closeMenu}>
+        CV
+      </NavLink>
+
       <NavLink href="/contact" closeMenu={closeMenu}>
         Contact
       </NavLink>
