@@ -6,6 +6,8 @@ const schema = z.object({
   body: z.string().max(500).min(10),
 });
 
+const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK;
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -17,12 +19,40 @@ export default async function handler(
   try {
     const body = schema.parse(req.body);
 
-    // Form submission validated successfully
-    console.log("Form submission:", {
-      email: body.email,
-      body: body.body,
-      ip: req.headers["x-forwarded-for"] || req.socket.remoteAddress,
-    });
+    // Send to Discord webhook if configured
+    if (DISCORD_WEBHOOK) {
+      await fetch(DISCORD_WEBHOOK, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          embeds: [
+            {
+              title: "New Contact Form Submission",
+              color: 0x5865f2,
+              fields: [
+                {
+                  name: "Email",
+                  value: body.email,
+                  inline: true,
+                },
+                {
+                  name: "IP",
+                  value: String(req.headers["x-forwarded-for"] || req.socket.remoteAddress || "Unknown"),
+                  inline: true,
+                },
+                {
+                  name: "Message",
+                  value: body.body,
+                },
+              ],
+              timestamp: new Date().toISOString(),
+            },
+          ],
+        }),
+      });
+    }
 
     if (req.headers["content-type"] === "application/json") {
       return res.status(200).json({ sent: true });

@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import {
 	FiMail,
 	FiPhone,
-	FiGlobe,
 	FiGithub,
 	FiDownload,
 	FiBriefcase,
