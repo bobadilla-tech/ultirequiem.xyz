@@ -1,5 +1,5 @@
-import { useLanyard } from "use-lanyard";
-import { SiGithub, SiTwitter } from "react-icons/si";
+import { useLanyard, type Types } from "use-lanyard";
+import { SiGithub, SiX } from "react-icons/si";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import {
   DISCORD_ID,
@@ -10,11 +10,10 @@ import {
 } from "../util";
 
 import type { GetStaticProps, NextPage } from "next";
-import type { Data } from "use-lanyard";
 import { GitHub, Twitter } from "../container/socials";
 
 interface Props {
-  lanyard: Data;
+  lanyard: Types.Presence;
 }
 
 const OneHundredDays = ({
@@ -43,7 +42,7 @@ const DrawingChallenge = () => (
 
 const Index: NextPage<Props> = (props) => {
   const { data: lanyard } = useLanyard(DISCORD_ID, {
-    fallbackData: props.lanyard,
+    initialData: props.lanyard,
   });
 
   return (
@@ -55,7 +54,7 @@ const Index: NextPage<Props> = (props) => {
         </GitHub>
 
         <Twitter>
-          <SiTwitter className="w-7 h-7" />
+          <SiX className="w-7 h-7" />
           <span className="sr-only">Twitter Profile</span>
         </Twitter>
 

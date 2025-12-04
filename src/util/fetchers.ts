@@ -1,4 +1,4 @@
-import { LanyardError, LanyardResponse } from "use-lanyard";
+import type { Types } from "use-lanyard";
 import { DISCORD_ID, USERNAME } from "./constants";
 
 export const pinnedRepos = async () => {
@@ -9,15 +9,28 @@ export const pinnedRepos = async () => {
   return pinnedReposResponse.json();
 };
 
-export const lanyardData = async () => {
+interface LanyardResponse {
+  success: boolean;
+  data?: Types.Presence;
+  error?: {
+    message: string;
+    code: string;
+  };
+}
+
+export const lanyardData = async (): Promise<Types.Presence> => {
   const lanyard = await fetch(
     `https://api.lanyard.rest/v1/users/${DISCORD_ID}`,
   );
 
   const lanyardBody = (await lanyard.json()) as LanyardResponse;
 
-  if ("error" in lanyardBody) {
-    throw new LanyardError(lanyard.status, lanyardBody.error.message);
+  if ("error" in lanyardBody && lanyardBody.error) {
+    throw new Error(lanyardBody.error.message);
+  }
+
+  if (!lanyardBody.data) {
+    throw new Error("No data returned from Lanyard API");
   }
 
   return lanyardBody.data;

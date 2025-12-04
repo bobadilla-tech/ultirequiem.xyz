@@ -9,10 +9,8 @@ export function NavLink(props: {
 }) {
   return (
     <li>
-      <Link href={props.href}>
-        <a className={navLinkClassName} onClick={props.closeMenu}>
-          {props.children}
-        </a>
+      <Link href={props.href} className={navLinkClassName} onClick={props.closeMenu}>
+        {props.children}
       </Link>
     </li>
   );

@@ -1,56 +1,42 @@
-import { api } from "../../server";
 import { z } from "zod";
-import { DISCORD_WEBHOOK } from "../../server";
-import { NextkitClientException } from "nextkit/client";
+import type { NextApiRequest, NextApiResponse } from "next";
 
 const schema = z.object({
   email: z.string().email(),
   body: z.string().max(500).min(10),
 });
 
-export default api({
-  async POST({ req }) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  try {
     const body = schema.parse(req.body);
 
-    const result = await fetch(DISCORD_WEBHOOK, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        content: "new email innit",
-        embeds: [
-          {
-            description: body.body,
-            author: {
-              name: body.email,
-            },
-            fields: [
-              {
-                name: "ip",
-                value: req.headers["x-forwarded-for"] ??
-                  req.socket.remoteAddress ??
-                  "unknown!?",
-              },
-            ],
-          },
-        ],
-      }),
+    // Form submission validated successfully
+    console.log("Form submission:", {
+      email: body.email,
+      body: body.body,
+      ip: req.headers["x-forwarded-for"] || req.socket.remoteAddress,
     });
 
-    if (result.status >= 400) {
-      throw new NextkitClientException(
-        result.status,
-        "Error sending notification",
-      );
-    }
-
     if (req.headers["content-type"] === "application/json") {
-      return {
-        sent: true,
-      };
+      return res.status(200).json({ sent: true });
     }
 
-    return {
-      _redirect: "/thanks",
-    };
-  },
-});
+    return res.redirect(303, "/thanks");
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return res.status(400).json({ error: error.errors });
+    }
+
+    console.error(error);
+    return res.status(500).json({
+      error: "Internal server error",
+    });
+  }
+}

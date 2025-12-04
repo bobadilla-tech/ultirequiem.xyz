@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import { toast } from "react-hot-toast";
 import { TimeStatus } from "../components";
-import { EMAIL, form, TELEPHONE_NUMBER, USERNAME } from "../util";
+import { EMAIL, TELEPHONE_NUMBER, USERNAME } from "../util";
 import { RiPhoneLine, RiSendPlane2Line } from "react-icons/ri";
-import { SiTwitter } from "react-icons/si";
+import { SiX } from "react-icons/si";
 import ContactLink from "../components/contact-link";
 import { FiMail } from "react-icons/fi";
 
@@ -33,13 +33,17 @@ export default function Talk() {
                 new FormData(event.target as HTMLFormElement).entries()
               );
 
-              const promise = form.post(
-                {},
-                {
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(values),
+              const promise = fetch("/api/form", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(values),
+              }).then(async (response) => {
+                if (!response.ok) {
+                  const error = await response.json();
+                  throw new Error(error.error || "Something went wrong");
                 }
-              );
+                return response.json();
+              });
 
               await toast
                 .promise(promise, {
@@ -103,7 +107,7 @@ export default function Talk() {
 
             <ContactLink
               name="@ultirequiem"
-              icon={<SiTwitter className="w-6 h-6 text-[#1DA1F2]" />}
+              icon={<SiX className="w-6 h-6 text-[#1DA1F2]" />}
               link={`https://twitter.com/${USERNAME}`}
               borderColor="hover:border-[#1DA1F2]/50"
             />

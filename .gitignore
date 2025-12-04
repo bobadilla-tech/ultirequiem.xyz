@@ -16,6 +16,9 @@
 .next
 out
 
+# TypeScript
+*.tsbuildinfo
+
 # Yarn
 .yarn/*
 !.yarn/releases
