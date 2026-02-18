@@ -1,5 +1,6 @@
-import type { Types } from "use-lanyard";
 import { DISCORD_ID, USERNAME } from "./constants";
+
+import type { Types } from "use-lanyard";
 
 export const pinnedRepos = async () => {
   const pinnedReposResponse = await fetch(
