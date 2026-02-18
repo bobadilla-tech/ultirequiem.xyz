@@ -32,20 +32,14 @@ const AboutPage: NextPage = () => {
       </div>
       <div className="space-y-4">
         <p>
-          Hey! I'm Eliaz, a full-stack engineer from{" "}
-          {profile.country}. I care about performant, and accessible code.
+          Hey! I'm {profile.fullName}, a full-stack engineer from{" "}
+          {profile.country}. I care about performant and accessible code.
         </p>
 
         <p>
-          I have been programming since I was 14 year old, in the final days of
-          2020! I've learned a lot about core programming principles, design
+          I have been programming since I was 14 years old, in the final days of
+          2020. I've learned a lot about core programming principles, design
           patterns and systems architecture.
-        </p>
-
-        <p>
-          Recently I have been working on my online presence, mostly only
-          Twitter, so if you want to know what I'm doing check it out!{" "}
-          <a href="https://twitter.com/UltiRequiem">@UltiRequiem</a> 🚀
         </p>
       </div>
     </div>
