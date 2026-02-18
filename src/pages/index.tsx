@@ -1,4 +1,4 @@
-import { useLanyard, type Types } from "use-lanyard";
+import { useLanyardWS, type Types } from "use-lanyard";
 import { SiGithub, SiX } from "react-icons/si";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { lanyardData, profile } from "../util";
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const Index: NextPage<Props> = (props) => {
-	const { data: lanyard } = useLanyard(profile.discordId, {
+	const lanyard = useLanyardWS(profile.discordId, {
 		initialData: props.lanyard,
 	});
 

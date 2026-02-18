@@ -1,9 +1,14 @@
-import { ReactElement } from "react";
+import { type AnchorHTMLAttributes, type ForwardRefExoticComponent, ReactElement } from "react";
 import { FiExternalLink } from "react-icons/fi";
 import { animated, useSpring } from "react-spring";
 import { classNames } from "../util/";
 
-const AnimatedA = animated.a as any;
+// React 18 removed implicit `children` from ForwardRefExoticComponent, and
+// react-spring's Interpolation type isn't assignable to CSS Transform. Both
+// are upstream type gaps — only loosen what's necessary.
+const AnimatedA = animated.a as ForwardRefExoticComponent<
+  Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "style"> & { style?: any }
+>;
 
 const calc = (x: number, y: number) => [
   -(y - window.innerHeight / 3) / 35,
