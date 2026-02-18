@@ -1,6 +1,6 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
-import { COUNTRY, FULL_NAME, PFP } from "../util";
+import { profile } from "../util";
 
 export default class Page extends Document {
   render() {
@@ -8,11 +8,11 @@ export default class Page extends Document {
       <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
-          <link rel="icon" type="image/png" href={PFP} />
+          <link rel="icon" type="image/png" href={profile.pfp} />
           <meta name="theme-color" content="#ffffff" />
           <meta
             name="description"
-            content={`${FULL_NAME}, Full–stack Web and System developer from ${COUNTRY}`}
+            content={`${profile.fullName}, Full–stack Web and System developer from ${profile.country}`}
           />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link

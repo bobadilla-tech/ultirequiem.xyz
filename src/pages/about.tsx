@@ -3,7 +3,7 @@ import Image from "next/image";
 import type { NextPage } from "next";
 
 import PlatziDiploma from "../../public/me_platzi.jpg";
-import { COUNTRY } from "../util";
+import { profile } from "../util";
 
 const AboutPage: NextPage = () => {
   return (
@@ -33,7 +33,7 @@ const AboutPage: NextPage = () => {
       <div className="space-y-4">
         <p>
           Hey! I'm Eliaz, a full-stack engineer from{" "}
-          {COUNTRY}. I care about performant, and accessible code.
+          {profile.country}. I care about performant, and accessible code.
         </p>
 
         <p>

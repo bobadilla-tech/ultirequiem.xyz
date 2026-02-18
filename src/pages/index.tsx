@@ -1,7 +1,7 @@
 import { useLanyard, type Types } from "use-lanyard";
 import { SiGithub, SiX } from "react-icons/si";
 import { HiOutlineLocationMarker } from "react-icons/hi";
-import { DISCORD_ID, lanyardData, NAME } from "../util";
+import { lanyardData, profile } from "../util";
 
 import type { GetStaticProps, NextPage } from "next";
 import { GitHub, Twitter } from "../container/socials";
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const Index: NextPage<Props> = (props) => {
-	const { data: lanyard } = useLanyard(DISCORD_ID, {
+	const { data: lanyard } = useLanyard(BigInt(profile.discordId), {
 		initialData: props.lanyard,
 	});
 
@@ -46,14 +46,14 @@ const Index: NextPage<Props> = (props) => {
 								&nbsp;
 							</span>
 
-							<span className="block -mb-0.5 ml-1 w-[6px] h-[6px] bg-gray-600 dark:bg-white rounded-full animate-pulse" />
+							<span className="block -mb-0.5 ml-1 w-1.5 h-1.5 bg-gray-600 dark:bg-white rounded-full animate-pulse" />
 						</a>
 					</p>
 				)}
 			</div>
 
 			<h1 className="text-3xl font-bold sm:text-4xl md:text-6xl">
-				Hey, I'm <span className="text-blue-700 dark:text-white">{NAME}</span>{" "}
+				Hey, I'm <span className="text-blue-700 dark:text-white">{profile.name}</span>{" "}
 				👋
 			</h1>
 
@@ -90,7 +90,7 @@ const Index: NextPage<Props> = (props) => {
 				</p>
 
 				<p>
-					<strong>Open to new opportunities</strong> — whether it's full-time
+					<strong>Open to new opportunities:</strong> whether it's full-time
 					positions, contract work, or consulting engagements. Check out my{" "}
 					<a
 						href="/cv"

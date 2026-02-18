@@ -1,10 +1,10 @@
-import { DISCORD_ID, USERNAME } from "./constants";
+import { profile } from "./constants";
 
 import type { Types } from "use-lanyard";
 
 export const pinnedRepos = async () => {
   const pinnedReposResponse = await fetch(
-    `https://gh-pinned-repos.egoist.sh/?username=${USERNAME}`,
+    `https://gh-pinned-repos.egoist.sh/?username=${profile.username}`,
   );
 
   return pinnedReposResponse.json();
@@ -21,7 +21,7 @@ interface LanyardResponse {
 
 export const lanyardData = async (): Promise<Types.Presence> => {
   const lanyard = await fetch(
-    `https://api.lanyard.rest/v1/users/${DISCORD_ID}`,
+    `https://api.lanyard.rest/v1/users/${profile.discordId}`,
   );
 
   const lanyardBody = (await lanyard.json()) as LanyardResponse;

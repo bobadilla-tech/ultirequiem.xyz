@@ -1,13 +1,18 @@
-export const DISCORD_ID = "855130539048960030";
-export const USERNAME = "ultirequiem";
-export const COUNTRY = "Peru";
-export const NAME = "Eliaz";
-export const FULL_NAME = `${NAME} Bobadilla`;
-export const POSITION = "Software Engineer";
-export const CURRENT_YEAR = new Date().getFullYear();
-export const PFP = "https://avatars.githubusercontent.com/u/71897736?v=4";
-export const GITHUB = `https://github.com/${USERNAME}`;
-export const TWITTER = `https://twitter.com/${USERNAME}`;
-export const LINKEDIN = `https://www.linkedin.com/in/${USERNAME}`;
-export const EMAIL = "eliaz@bobadilla.tech";
-export const TELEPHONE_NUMBER = "+51 923-531-893";
+const username = "ultirequiem";
+const name = "Eliaz";
+
+export const profile = {
+  discordId: "855130539048960030",
+  username,
+  country: "Peru",
+  name,
+  fullName: `${name} Bobadilla`,
+  position: "Software Engineer",
+  currentYear: new Date().getFullYear(),
+  pfp: "https://avatars.githubusercontent.com/u/71897736?v=4",
+  github: `https://github.com/${username}`,
+  twitter: `https://twitter.com/${username}`,
+  linkedin: `https://www.linkedin.com/in/${username}`,
+  email: "eliaz@bobadilla.tech",
+  telephone: "+51 923-531-893",
+};

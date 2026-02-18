@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { toast } from "react-hot-toast";
 import { TimeStatus } from "../components";
-import { EMAIL, TELEPHONE_NUMBER, USERNAME } from "../util";
+import { profile } from "../util";
 import { RiPhoneLine, RiSendPlane2Line } from "react-icons/ri";
 import { SiX } from "react-icons/si";
 import ContactLink from "../components/contact-link";
@@ -98,9 +98,9 @@ export default function Talk() {
           <ul className="space-y-2 list-disc list-inside">
             <br />
             <ContactLink
-              name={EMAIL}
+              name={profile.email}
               icon={<FiMail className="w-6 h-6 text-gray-400" />}
-              link={`mailto:${EMAIL}`}
+              link={`mailto:${profile.email}`}
               borderColor="hover:border-gray-400/50"
             />
             <br />
@@ -108,14 +108,14 @@ export default function Talk() {
             <ContactLink
               name="@ultirequiem"
               icon={<SiX className="w-6 h-6 text-[#1DA1F2]" />}
-              link={`https://twitter.com/${USERNAME}`}
+              link={profile.twitter}
               borderColor="hover:border-[#1DA1F2]/50"
             />
 
             <br />
 
             <ContactLink
-              name={TELEPHONE_NUMBER}
+              name={profile.telephone}
               icon={<RiPhoneLine className="w-6 h-6 text-gray-400" />}
               borderColor="hover:border-gray-400/50"
             />

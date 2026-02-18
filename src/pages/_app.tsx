@@ -8,14 +8,7 @@ import NProgress from "nprogress";
 import { Toaster } from "react-hot-toast";
 import { Squash } from "hamburger-react";
 
-import {
-	CURRENT_YEAR,
-	DISCORD_ID,
-	FULL_NAME,
-	loadCursor,
-	POSITION,
-	USERNAME,
-} from "../util/";
+import { loadCursor, profile } from "../util/";
 import { NavLink, navLinkClassName } from "../container";
 
 import { AnimatePresence, motion } from "framer-motion";
@@ -32,6 +25,18 @@ Router.events.on("routeChangeError", NProgress.done);
 export default function App({ Component, pageProps, router }: AppProps) {
 	const [mobileMenuOpen, setMenuOpen] = useState(false);
 	const [hasScrolled, setHasScrolled] = useState(false);
+
+	// Suppress unhandled AbortErrors from use-lanyard's fetch cleanup (expected on unmount/navigation)
+	useEffect(() => {
+		const handler = (event: PromiseRejectionEvent) => {
+			if (event.reason?.name === "AbortError") {
+				event.preventDefault();
+			}
+		};
+		
+		window.addEventListener("unhandledrejection", handler);
+		return () => window.removeEventListener("unhandledrejection", handler);
+	}, []);
 
 	const ballCanvas = useRef<HTMLDivElement>(null);
 
@@ -109,8 +114,8 @@ export default function App({ Component, pageProps, router }: AppProps) {
 			<SWRConfig
 				value={{
 					fallback: {
-						[`lanyard:${DISCORD_ID}`]: pageProps?.lanyard,
-						[`https://gh-pinned-repos.egoist.sh/?username=${USERNAME}`]:
+						[`lanyard:${profile.discordId}`]: pageProps?.lanyard,
+						[`https://gh-pinned-repos.egoist.sh/?username=${profile.username}`]:
 							pageProps?.pinnedRepos,
 					},
 				}}
@@ -118,7 +123,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
 				<Toaster toastOptions={{ position: "top-left" }} />
 
 				<Head>
-					<title>{FULL_NAME}</title>
+					<title>{profile.fullName}</title>
 				</Head>
 
 				<AnimatePresence>
@@ -178,9 +183,9 @@ export default function App({ Component, pageProps, router }: AppProps) {
 					</main>
 
 					<footer className="p-4 py-5 mx-auto md:mt-0 mt-5 max-w-3xl border-t-2 border-gray-900/10 dark:border-white/10 opacity-50">
-						<h1 className="text-3xl font-bold">{FULL_NAME}</h1>
+						<h1 className="text-3xl font-bold">{profile.fullName}</h1>
 						<p>
-							{POSITION} • {CURRENT_YEAR}
+							{profile.position} • {profile.currentYear}
 						</p>
 					</footer>
 				</div>

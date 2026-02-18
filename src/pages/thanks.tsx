@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { GitHub, Twitter } from "../container";
-import { NAME } from "../util";
+import { profile } from "../util";
 
 const Thanks: NextPage = () => {
   return (
@@ -11,7 +11,7 @@ const Thanks: NextPage = () => {
         free to checkout my <GitHub /> or{" "}
         <Twitter />, there's some cool stuff there 🚀
         <br />
-        <br />– {NAME}
+        <br />– {profile.name}
       </p>
     </div>
   );
