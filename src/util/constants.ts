@@ -2,7 +2,7 @@ const username = "ultirequiem";
 const name = "Eliaz";
 
 export const profile = {
-  discordId: "855130539048960030",
+  discordId: "855130539048960030" as `${bigint}`,
   username,
   country: "Peru",
   name,

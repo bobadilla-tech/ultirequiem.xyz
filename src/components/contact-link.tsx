@@ -1,7 +1,9 @@
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import { FiExternalLink } from "react-icons/fi";
 import { animated, useSpring } from "react-spring";
 import { classNames } from "../util/";
+
+const AnimatedA = animated.a as any;
 
 const calc = (x: number, y: number) => [
   -(y - window.innerHeight / 3) / 35,
@@ -28,7 +30,7 @@ export const ContactLink = ({
   }));
 
   return (
-    <animated.a
+    <AnimatedA
       href={link}
       target="_blank"
       rel="noreferrer noopener"
@@ -51,7 +53,7 @@ export const ContactLink = ({
         {name}
       </h1>
       {link && <FiExternalLink className="w-5 h-5 text-gray-600" />}
-    </animated.a>
+    </AnimatedA>
   );
 };
 

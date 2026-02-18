@@ -11,7 +11,7 @@ interface Props {
 }
 
 const Index: NextPage<Props> = (props) => {
-	const { data: lanyard } = useLanyard(BigInt(profile.discordId), {
+	const { data: lanyard } = useLanyard(profile.discordId, {
 		initialData: props.lanyard,
 	});
 
