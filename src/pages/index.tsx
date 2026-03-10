@@ -1,5 +1,5 @@
 import { useLanyardWS, type Types } from "use-lanyard";
-import { SiGithub, SiX } from "react-icons/si";
+import { SiGithub, SiX, SiLinkedin, SiGmail } from "react-icons/si";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { lanyardData, profile } from "../util";
 
@@ -59,16 +59,16 @@ const Index: NextPage<Props> = (props) => {
 
 			<div className="space-y-4 text-lg leading-relaxed">
 				<p>
-					Senior Full-Stack AI Software Engineer with{" "}
-					<strong>6+ years of experience</strong> building scalable applications
-					and AI-powered solutions. I specialize in modern web technologies,
-					microservices architecture, and cloud infrastructure.
+					Senior Fullstack Engineer with deep backend and AI expertise, focused
+					on scalable systems, performance, reliability, and applied AI. I
+					currently work at{" "}
+					<strong>Ticket Fairy</strong> (YC-backed), and also build
+					products as an indie founder.
 				</p>
 
 				<p>
-					Throughout my career, I've worked with companies across the US and
-					LATAM, from early-stage startups to established enterprises. Currently
-					running{" "}
+					I&apos;ve worked with companies across the US and LATAM, from
+					early-stage startups to established enterprises. I run{" "}
 					<a
 						href="https://bobadilla.tech"
 						target="_blank"
@@ -77,7 +77,7 @@ const Index: NextPage<Props> = (props) => {
 					>
 						Bobadilla Tech
 					</a>
-					, where I provide consulting and engineering services, and building{" "}
+					, a LATAM engineering agency, and built{" "}
 					<a
 						href="https://compilestrength.com"
 						target="_blank"
@@ -86,19 +86,27 @@ const Index: NextPage<Props> = (props) => {
 					>
 						CompileStrength
 					</a>
-					, an AI-powered fitness platform.
+					{" "}and{" "}
+					<a
+						href="https://requiems.xyz"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="text-blue-600 dark:text-blue-400 hover:underline"
+					>
+						Requiems API
+					</a>
+					.
 				</p>
 
 				<p>
-					<strong>Open to new opportunities:</strong> whether it's full-time
-					positions, contract work, or consulting engagements. Check out my{" "}
+					Check out my{" "}
 					<a
 						href="/cv"
 						className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
 					>
 						CV
 					</a>{" "}
-					for a detailed overview of my experience and projects.
+					for a full overview of my work and projects.
 				</p>
 
 				<p className="flex flex-wrap gap-3 pt-2">
@@ -106,23 +114,26 @@ const Index: NextPage<Props> = (props) => {
 						href="https://www.linkedin.com/in/ultirequiem/"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium"
+						title="LinkedIn"
+						className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-[#0A66C2] hover:bg-[#0858a8] text-white transition-colors"
 					>
-						LinkedIn
+						<SiLinkedin className="w-5 h-5" />
 					</a>
 					<a
 						href="mailto:eliaz@bobadilla.tech"
-						className="inline-flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors font-medium"
+						title="Email"
+						className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-[#EA4335] hover:bg-[#d03628] text-white transition-colors"
 					>
-						Email
+						<SiGmail className="w-5 h-5" />
 					</a>
 					<a
 						href="https://x.com/UltiRequiem"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="inline-flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors font-medium"
+						title="X / Twitter"
+						className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-black hover:bg-gray-800 text-white transition-colors"
 					>
-						Twitter
+						<SiX className="w-5 h-5" />
 					</a>
 				</p>
 			</div>

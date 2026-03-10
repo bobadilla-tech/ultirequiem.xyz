@@ -107,7 +107,7 @@ export default function Talk() {
 
             <ContactLink
               name="@ultirequiem"
-              icon={<SiX className="w-6 h-6 text-[#1DA1F2]" />}
+              icon={<SiX className="w-6 h-6 text-white bg-black rounded p-0.5" />}
               link={profile.twitter}
               borderColor="hover:border-[#1DA1F2]/50"
             />

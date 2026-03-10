@@ -1,15 +1,14 @@
 import type { NextPage } from "next";
 import { motion } from "framer-motion";
 import {
-	FiMail,
 	FiPhone,
-	FiGithub,
 	FiDownload,
 	FiBriefcase,
 	FiAward,
 	FiCode,
+	FiBookOpen,
 } from "react-icons/fi";
-import { SiYoutube, SiLinkedin } from "react-icons/si";
+import { SiGmail, SiGithub, SiLinkedin, SiYoutube, SiX } from "react-icons/si";
 
 const CVPage: NextPage = () => {
 	const container = {
@@ -28,7 +27,6 @@ const CVPage: NextPage = () => {
 	const stats = [
 		{ label: "Years Experience", value: "6+", icon: FiBriefcase },
 		{ label: "Open Source Downloads", value: "1M+", icon: FiDownload },
-		{ label: "Open Source Projects", value: "100+", icon: FiCode },
 		{ label: "HackerRank Percentile", value: "0.2%", icon: FiAward },
 	];
 
@@ -42,7 +40,7 @@ const CVPage: NextPage = () => {
 			{/* Hero Header with Gradient */}
 			<motion.div
 				variants={item}
-				className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 p-12 md:p-16 text-white shadow-2xl"
+				className="relative overflow-hidden rounded-3xl bg-linear-to-br from-blue-600 via-purple-600 to-pink-600 p-12 md:p-16 text-white shadow-2xl"
 			>
 				<div className="relative z-10 space-y-6">
 					<motion.h1
@@ -60,47 +58,55 @@ const CVPage: NextPage = () => {
 						transition={{ delay: 0.3 }}
 						className="text-2xl md:text-3xl font-light opacity-95"
 					>
-						Senior Full-Stack AI Engineer
+						Software Engineer · AI Builder · Indie Founder
 					</motion.p>
 
 					<motion.div
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ delay: 0.4 }}
-						className="flex flex-col gap-3 pt-4"
+						className="flex flex-wrap items-center gap-3 pt-4"
 					>
-						<div className="flex flex-wrap gap-4">
-							<ContactBadge
-								href="mailto:eliaz@bobadilla.tech"
-								icon={FiMail}
-								text="eliaz@bobadilla.tech"
-							/>
-							<ContactBadge
-								href="tel:+51923531893"
-								icon={FiPhone}
-								text="+51 923 531 893"
-							/>
-						</div>
-						<div className="flex flex-wrap gap-4">
-							<ContactBadge
-								href="https://github.com/ultirequiem"
-								icon={FiGithub}
-								text="ultirequiem"
-								external
-							/>
-							<ContactBadge
-								href="https://youtube.com/@ultirequiem"
-								icon={SiYoutube}
-								text="@ultirequiem"
-								external
-							/>
-							<ContactBadge
-								href="https://www.linkedin.com/in/ultirequiem/"
-								icon={SiLinkedin}
-								text="ultirequiem"
-								external
-							/>
-						</div>
+						<ContactBadge
+							href="mailto:eliaz@bobadilla.tech"
+							icon={SiGmail}
+							label="Gmail"
+							hoverColor="hover:bg-red-500/80"
+						/>
+						<ContactBadge
+							href="tel:+51923531893"
+							icon={FiPhone}
+							label="Phone"
+							hoverColor="hover:bg-white/30"
+						/>
+						<ContactBadge
+							href="https://github.com/ultirequiem"
+							icon={SiGithub}
+							label="GitHub"
+							hoverColor="hover:bg-gray-700/80"
+							external
+						/>
+						<ContactBadge
+							href="https://www.linkedin.com/in/ultirequiem/"
+							icon={SiLinkedin}
+							label="LinkedIn"
+							hoverColor="hover:bg-blue-600/80"
+							external
+						/>
+						<ContactBadge
+							href="https://x.com/ultirequiem"
+							icon={SiX}
+							label="X / Twitter"
+							hoverColor="hover:bg-black/60"
+							external
+						/>
+						<ContactBadge
+							href="https://youtube.com/@ultirequiem"
+							icon={SiYoutube}
+							label="YouTube"
+							hoverColor="hover:bg-red-600/80"
+							external
+						/>
 					</motion.div>
 				</div>
 
@@ -126,7 +132,7 @@ const CVPage: NextPage = () => {
 			{/* Stats Grid */}
 			<motion.div
 				variants={item}
-				className="grid grid-cols-2 md:grid-cols-4 gap-4"
+				className="grid grid-cols-3 gap-4"
 			>
 				{stats.map((stat) => (
 					<StatCard key={stat.label} {...stat} />
@@ -136,116 +142,37 @@ const CVPage: NextPage = () => {
 			{/* About Me */}
 			<motion.section variants={item} className="space-y-4">
 				<SectionTitle>About Me</SectionTitle>
-				<div className="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 border border-blue-200 dark:border-blue-800">
+				<div className="p-8 rounded-2xl bg-linear-to-br from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 border border-blue-200 dark:border-blue-800 space-y-4">
 					<p className="text-lg leading-relaxed text-gray-800 dark:text-gray-200">
-						Senior Full-Stack AI Software Engineer with{" "}
+						I&apos;m Eliaz, a Senior Fullstack Engineer with deep backend and
+						AI expertise, focused on scalable systems, performance,
+						reliability, and applied AI. I currently work at{" "}
 						<strong className="text-blue-600 dark:text-blue-400">
-							6+ years
-						</strong>{" "}
-						of experience building scalable applications and AI-powered
-						solutions. End-to-end builder who has shipped full platforms like{" "}
-						<a
-							href="https://compilestrength.com"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="text-blue-600 dark:text-blue-400 hover:underline"
-						>
-							CompileStrength
-						</a>{" "}
-						and owns{" "}
-						<a
-							href="https://bobadilla.tech"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="text-blue-600 dark:text-blue-400 hover:underline"
-						>
-							Bobadilla Tech
-						</a>
-						, a top LATAM engineering agency. Expertise in modern web
-						technologies, microservices architecture, and cloud infrastructure.
-						Active open-source contributor with{" "}
+							Ticket Fairy
+						</strong>
+						, a US ticketing company backed by{" "}
 						<strong className="text-purple-600 dark:text-purple-400">
-							1M+ combined downloads
-						</strong>{" "}
-						across npm, PyPI, and crates.io.
+							Y Combinator
+						</strong>
+						, where I work across product engineering, AI development, and
+						system modernization. From debugging revenue-impacting issues and
+						shipping client-facing features to leading AI agent development and
+						helping migrate large legacy systems safely at scale.
 					</p>
-				</div>
-			</motion.section>
-
-			{/* Experience */}
-			<motion.section variants={item} className="space-y-6">
-				<SectionTitle icon={FiBriefcase}>Experience</SectionTitle>
-				<div className="space-y-6">
-					<ExperienceCard
-						title="Senior Full-Stack AI Software Engineer"
-						company="Mappa"
-						location="Delaware, US (Remote)"
-						period="2025"
-						achievements={[
-							"Designed and deployed scalable backend services with NestJS and Hono, handling high-traffic workloads",
-							"Built AI-powered solutions including chatbots with Mastra and speech recognition with Deepgram",
-							"Created core enterprise applications for hiring workflows and talent management",
-							"Managed infrastructure and CI/CD pipelines with Vercel, Railway, Sentry, and PostHog",
-						]}
-					/>
-					<ExperienceCard
-						title="Full-Stack Mobile Software Developer"
-						company="Belity"
-						location="Lima, Peru"
-						period="2025"
-						achievements={[
-							"Migrated Laravel monolith to microservice architecture using Cloud Run",
-							"Developed new functionalities using Flutter, GetX, and Material Design",
-							"Built web version using Next.js to expand accessibility",
-						]}
-					/>
-					<ExperienceCard
-						title="LLM Engineer & AI Prompt Specialist"
-						company="Outlier"
-						location="San Francisco (Remote)"
-						period="2023 - 2024"
-						achievements={[
-							"Created custom prompts to surface and correct errors in LLMs, improving model accuracy and performance",
-							"Taught models to implement projects from scratch with various technologies",
-							"Ensured good practices were used, focusing on end-user satisfaction and code quality",
-						]}
-					/>
-					<ExperienceCard
-						title="Full-Stack Software Developer"
-						company="Snyder Tech"
-						location="Pennsylvania (Remote)"
-						period="2022"
-						achievements={[
-							"Achieved seamless phone authentication for internal apps using Laravel and Twilio",
-							"Built reusable React components for client and internal projects, improving development efficiency",
-							"Improved website reliability by writing comprehensive end-to-end tests using Cypress",
-							"Provided customer support and troubleshooting, ensuring high client satisfaction",
-							"Streamlined deployment processes by porting Bash scripts to Deno",
-						]}
-					/>
-					<ExperienceCard
-						title="Full-Stack Software Developer"
-						company="Shareweave"
-						location="Pennsylvania (Remote)"
-						period="2022"
-						achievements={[
-							"Developed and maintained an open-source SDK for third-party developers in TypeScript",
-							"Increased community adoption and user retention by managing community and providing technical support",
-							"Facilitated seamless interaction with Bundlr Network, Supabase, and GUN DB by building robust backend APIs",
-						]}
-					/>
-					<ExperienceCard
-						title="Full-Stack Software Developer"
-						company="Verigeo"
-						location="Lima (Remote)"
-						period="2021"
-						achievements={[
-							"Migrated a geolocation application to a more scalable stack using React, Node.js, Hapi.js, and MongoDB",
-							"Implemented configurable dynamic layouts accessible to end-users through a configuration panel",
-							"Created and modified backend endpoints to enhance application functionality",
-							"Developed a mobile application with Flutter to track a courier in real-time",
-						]}
-					/>
+					<p className="text-lg leading-relaxed text-gray-800 dark:text-gray-200">
+						While most of my work has been hands-on as an individual
+						contributor, I frequently lead technical initiatives, mentor
+						engineers, collaborate directly with clients and cross-functional
+						teams, and help shape technical direction when navigating complex
+						trade-offs.
+					</p>
+					<p className="text-lg leading-relaxed text-gray-800 dark:text-gray-200">
+						Alongside industry work, I&apos;ve built and launched products as
+						an indie founder, taking ideas from zero to real users and revenue.
+						I also teach programming and game development in my local Peruvian
+						community, helping kids and teens get started with coding and
+						develop confidence through technology.
+					</p>
 				</div>
 			</motion.section>
 
@@ -288,7 +215,7 @@ const CVPage: NextPage = () => {
 			{/* Featured Platforms */}
 			<motion.section variants={item} className="space-y-6">
 				<SectionTitle>Featured Platforms</SectionTitle>
-				<div className="grid md:grid-cols-2 gap-6">
+				<div className="grid md:grid-cols-3 gap-6">
 					<ProjectCard
 						name="Bobadilla Tech"
 						url="bobadilla.tech"
@@ -300,6 +227,12 @@ const CVPage: NextPage = () => {
 						url="compilestrength.com"
 						description="AI-powered training programs built on exercise science and periodization."
 						gradient="from-red-500 to-pink-600"
+					/>
+					<ProjectCard
+						name="Requiems API"
+						url="requiems.xyz"
+						description="Production multi-tenant SaaS API platform. Go backend, Rails dashboard, Cloudflare Workers edge gateway."
+						gradient="from-violet-500 to-fuchsia-600"
 					/>
 				</div>
 			</motion.section>
@@ -327,47 +260,64 @@ const CVPage: NextPage = () => {
 						gradient="from-green-400 to-emerald-500"
 					/>
 				</div>
-			</motion.section>
-
-			{/* Open Source */}
-			<motion.section variants={item} className="space-y-6">
-				<SectionTitle>Open Source Impact</SectionTitle>
-				<div className="grid md:grid-cols-2 gap-4">
-					<ImpactCard
-						ecosystem="JavaScript/TypeScript"
-						downloads="500k+"
-						projects="50+"
-					/>
-					<ImpactCard ecosystem="Python" downloads="200k+" projects="15+" />
-					<ImpactCard ecosystem="Go" downloads="200k+" projects="15+" />
-					<ImpactCard ecosystem="Rust" downloads="20k+" projects="7+" />
-				</div>
-				<p className="text-center text-gray-600 dark:text-gray-400">
+				<p className="text-center text-sm text-gray-500 dark:text-gray-400">
 					Contributed to:{" "}
-					<strong>Deno, Node.js, Vercel, NumPy, Rust, MDN</strong>
+					<span className="font-medium text-gray-700 dark:text-gray-300">
+						Deno, Node.js, Vercel, NumPy, Rust, MDN
+					</span>
 				</p>
 			</motion.section>
 
 			{/* Education */}
 			<motion.section variants={item} className="space-y-4">
 				<SectionTitle>Education & Recognition</SectionTitle>
-				<div className="p-6 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-gray-700">
-					<h3 className="text-xl font-bold mb-2">
-						Universidad Nacional de Ingeniería
-					</h3>
-					<p className="text-gray-600 dark:text-gray-400 mb-4">
-						BS in Computer Science
-					</p>
-					<div className="space-y-2 text-sm">
-						<div className="flex items-center gap-2">
-							<FiAward className="text-yellow-500" />
-							<span className="font-semibold">
-								Top 0.2% of Python programmers in Peru (HackerRank, 2021)
+				<div className="grid md:grid-cols-2 gap-6">
+					{/* Education Card */}
+					<div className="relative overflow-hidden p-6 rounded-2xl bg-linear-to-br from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 border border-blue-200 dark:border-blue-800">
+						<div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-blue-500 to-purple-600 rounded-l-2xl" />
+						<div className="pl-3">
+							<FiBookOpen className="w-6 h-6 text-blue-600 dark:text-blue-400 mb-3" />
+							<h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+								Universidad Nacional de Ingeniería
+							</h3>
+							<p className="text-blue-600 dark:text-blue-400 font-medium text-sm mb-2">
+								BS in Computer Science
+							</p>
+							<p className="text-xs text-gray-500 dark:text-gray-400">
+								Lima, Peru
+							</p>
+						</div>
+					</div>
+
+					{/* Recognition Card */}
+					<div className="p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm">
+						<div className="flex items-center gap-2 mb-4">
+							<FiAward className="w-5 h-5 text-yellow-500" />
+							<h3 className="font-bold text-gray-900 dark:text-white">
+								Certifications & Awards
+							</h3>
+						</div>
+
+						{/* HackerRank gold highlight */}
+						<div className="flex items-start gap-3 p-3 rounded-xl bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-200 dark:border-yellow-800 mb-4">
+							<FiAward className="w-4 h-4 text-yellow-500 mt-0.5 shrink-0" />
+							<span className="text-sm font-semibold text-yellow-800 dark:text-yellow-300">
+								Top 0.2% of Python programmers in Peru — HackerRank, 2021
 							</span>
 						</div>
-						<p>Full Stack JavaScript Developer (Platzi, 2021)</p>
-						<p>Go Backend Developer (Platzi, 2021)</p>
-						<p>Python Backend Developer (Platzi, 2020)</p>
+
+						{/* Platzi certs as pills */}
+						<div className="flex flex-wrap gap-2">
+							<span className="px-3 py-1 rounded-full text-xs font-medium bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-400">
+								Full Stack JS Developer · Platzi 2021
+							</span>
+							<span className="px-3 py-1 rounded-full text-xs font-medium bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-400">
+								Go Backend Developer · Platzi 2021
+							</span>
+							<span className="px-3 py-1 rounded-full text-xs font-medium bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-400">
+								Python Backend Developer · Platzi 2020
+							</span>
+						</div>
 					</div>
 				</div>
 			</motion.section>
@@ -378,22 +328,26 @@ const CVPage: NextPage = () => {
 const ContactBadge = ({
 	href,
 	icon: Icon,
-	text,
+	label,
+	hoverColor,
 	external,
 }: {
 	href: string;
 	icon: React.ElementType;
-	text: string;
+	label: string;
+	hoverColor: string;
 	external?: boolean;
 }) => (
-	<a
+	<motion.a
 		href={href}
 		{...(external && { target: "_blank", rel: "noopener noreferrer" })}
-		className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-full backdrop-blur-sm transition-all hover:scale-105"
+		whileHover={{ scale: 1.1 }}
+		whileTap={{ scale: 0.95 }}
+		title={label}
+		className={`flex items-center justify-center w-11 h-11 rounded-2xl bg-white/20 backdrop-blur-sm transition-colors ${hoverColor}`}
 	>
-		<Icon className="w-4 h-4" />
-		<span className="text-sm font-medium">{text}</span>
-	</a>
+		<Icon className="w-5 h-5" />
+	</motion.a>
 );
 
 const StatCard = ({
@@ -407,7 +361,7 @@ const StatCard = ({
 }) => (
 	<motion.div
 		whileHover={{ scale: 1.05 }}
-		className="p-6 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700 text-center"
+		className="p-6 rounded-2xl bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700 text-center"
 	>
 		<Icon className="w-8 h-8 mx-auto mb-2 text-blue-600 dark:text-blue-400" />
 		<p className="text-3xl font-bold text-gray-900 dark:text-white">{value}</p>
@@ -428,42 +382,6 @@ const SectionTitle = ({
 			{children}
 		</span>
 	</h2>
-);
-
-const ExperienceCard = ({
-	title,
-	company,
-	location,
-	period,
-	achievements,
-}: {
-	title: string;
-	company: string;
-	location: string;
-	period: string;
-	achievements: string[];
-}) => (
-	<motion.div
-		whileHover={{ scale: 1.02 }}
-		className="p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all"
-	>
-		<h3 className="text-xl font-bold text-gray-900 dark:text-white">{title}</h3>
-		<p className="text-blue-600 dark:text-blue-400 font-semibold">{company}</p>
-		<p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-			{location} • {period}
-		</p>
-		<ul className="space-y-2">
-			{achievements.map((achievement) => (
-				<li
-					key={achievement}
-					className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300"
-				>
-					<span className="text-blue-500 mt-1">▸</span>
-					<span>{achievement}</span>
-				</li>
-			))}
-		</ul>
-	</motion.div>
 );
 
 const SkillGroup = ({
@@ -518,40 +436,12 @@ const ProjectCard = ({
 		target="_blank"
 		rel="noopener noreferrer"
 		whileHover={{ scale: 1.05, rotate: 1 }}
-		className={`block p-6 rounded-2xl bg-gradient-to-br ${gradient} text-white shadow-lg hover:shadow-2xl transition-all`}
+		className={`block p-6 rounded-2xl bg-linear-to-br ${gradient} text-white shadow-lg hover:shadow-2xl transition-all`}
 	>
 		<h3 className="text-2xl font-bold mb-2">{name}</h3>
 		<p className="text-sm opacity-90 mb-3">{description}</p>
 		<p className="text-xs opacity-75">{url}</p>
 	</motion.a>
-);
-
-const ImpactCard = ({
-	ecosystem,
-	downloads,
-	projects,
-}: {
-	ecosystem: string;
-	downloads: string;
-	projects: string;
-}) => (
-	<div className="p-4 rounded-xl bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700">
-		<h4 className="font-bold text-lg mb-2">{ecosystem}</h4>
-		<div className="flex gap-4 text-sm">
-			<div>
-				<p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-					{downloads}
-				</p>
-				<p className="text-gray-600 dark:text-gray-400">Downloads</p>
-			</div>
-			<div>
-				<p className="text-2xl font-bold text-purple-600 dark:text-purple-400">
-					{projects}
-				</p>
-				<p className="text-gray-600 dark:text-gray-400">Projects</p>
-			</div>
-		</div>
-	</div>
 );
 
 export default CVPage;
