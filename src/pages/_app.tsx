@@ -1,17 +1,13 @@
-import { StrictMode, useEffect, useRef, useState } from "react";
-
+import { AnimatePresence, motion } from "framer-motion";
+import { Squash } from "hamburger-react";
 import Head from "next/head";
 import { Router } from "next/router";
-
-import { SWRConfig } from "swr";
 import NProgress from "nprogress";
+import { StrictMode, useEffect, useRef, useState } from "react";
 import { Toaster } from "react-hot-toast";
-import { Squash } from "hamburger-react";
-
-import { loadCursor, profile } from "../util/";
+import { SWRConfig } from "swr";
 import { NavLink, navLinkClassName } from "../container";
-
-import { AnimatePresence, motion } from "framer-motion";
+import { loadCursor, profile } from "../util/";
 
 import "../styles/global.css";
 import "nprogress/nprogress.css";
@@ -33,7 +29,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
 				event.preventDefault();
 			}
 		};
-		
+
 		window.addEventListener("unhandledrejection", handler);
 		return () => window.removeEventListener("unhandledrejection", handler);
 	}, []);
@@ -181,13 +177,6 @@ export default function App({ Component, pageProps, router }: AppProps) {
 					<main className="mx-auto space-y-12 max-w-3xl md:py-24 text-black dark:text-white">
 						<Component {...pageProps} />
 					</main>
-
-					<footer className="p-4 py-5 mx-auto md:mt-0 mt-5 max-w-3xl border-t-2 border-gray-900/10 dark:border-white/10 opacity-50">
-						<h1 className="text-3xl font-bold">{profile.fullName}</h1>
-						<p>
-							{profile.position} • {profile.currentYear}
-						</p>
-					</footer>
 				</div>
 
 				<div

@@ -1,35 +1,45 @@
-import { useLanyardWS, type Types } from "use-lanyard";
-import { SiGithub, SiX, SiLinkedin, SiGmail } from "react-icons/si";
+import type { GetStaticProps, NextPage } from "next";
+import Image from "next/image";
 import { HiOutlineLocationMarker } from "react-icons/hi";
+import { SiGithub, SiGmail, SiLinkedin, SiX } from "react-icons/si";
+import { type Types, useLanyardWS } from "use-lanyard";
+import { Email, GitHub, LinkedIn, Twitter } from "../container/socials";
 import { lanyardData, profile } from "../util";
 
-import type { GetStaticProps, NextPage } from "next";
-import { GitHub, Twitter } from "../container/socials";
-
 interface Props {
-	lanyard: Types.Presence;
+	lanyard: Types.Presence | null;
 }
 
 const Index: NextPage<Props> = (props) => {
 	const lanyard = useLanyardWS(profile.discordId, {
-		initialData: props.lanyard,
+		initialData: props.lanyard ?? undefined,
 	});
 
 	return (
 		<div className="space-y-4">
-			<div className="flex items-center space-x-3">
-				<GitHub>
-					<SiGithub className="w-7 h-7" />
-					<span className="sr-only">GitHub Profile</span>
-				</GitHub>
+			<div className="flex items-center justify-between gap-4">
+				<div className="flex flex-wrap items-center gap-3">
+					<GitHub>
+						<SiGithub className="w-7 h-7" />
+						<span className="sr-only">GitHub Profile</span>
+					</GitHub>
 
-				<Twitter>
-					<SiX className="w-7 h-7" />
-					<span className="sr-only">Twitter Profile</span>
-				</Twitter>
+					<Twitter>
+						<SiX className="w-7 h-7" />
+						<span className="sr-only">Twitter Profile</span>
+					</Twitter>
 
-				{lanyard?.kv?.location && (
-					<p className="inline-flex items-center space-x-2">
+					<LinkedIn>
+						<SiLinkedin className="w-7 h-7" />
+						<span className="sr-only">LinkedIn Profile</span>
+					</LinkedIn>
+
+					<Email>
+						<SiGmail className="w-7 h-7" />
+						<span className="sr-only">Email</span>
+					</Email>
+
+					{lanyard?.kv?.location && (
 						<a
 							target="_blank"
 							href={`https://google.com/maps/search/${lanyard.kv.location}`}
@@ -48,22 +58,29 @@ const Index: NextPage<Props> = (props) => {
 
 							<span className="block -mb-0.5 ml-1 w-1.5 h-1.5 bg-gray-600 dark:bg-white rounded-full animate-pulse" />
 						</a>
-					</p>
-				)}
+					)}
+				</div>
+
+				<Image
+					src={profile.pfp}
+					alt={profile.fullName}
+					width={224}
+					height={224}
+					className="w-28 h-28 sm:w-40 sm:h-40 rounded-full object-cover shrink-0"
+				/>
 			</div>
 
 			<h1 className="text-3xl font-bold sm:text-4xl md:text-6xl">
-				Hey, I'm <span className="text-blue-700 dark:text-white">{profile.name}</span>{" "}
-				👋
+				Hey, I'm{" "}
+				<span className="text-blue-700 dark:text-white">{profile.name}</span> 👋
 			</h1>
 
 			<div className="space-y-4 text-lg leading-relaxed">
 				<p>
 					Senior Fullstack Engineer with deep backend and AI expertise, focused
 					on scalable systems, performance, reliability, and applied AI. I
-					currently work at{" "}
-					<strong>Ticket Fairy</strong> (YC-backed), and also build
-					products as an indie founder.
+					currently work at <strong>Ticket Fairy</strong> (YC-backed), and also
+					build products as an indie founder.
 				</p>
 
 				<p>
@@ -85,8 +102,8 @@ const Index: NextPage<Props> = (props) => {
 						className="text-blue-600 dark:text-blue-400 hover:underline"
 					>
 						CompileStrength
-					</a>
-					{" "}and{" "}
+					</a>{" "}
+					and{" "}
 					<a
 						href="https://requiems.xyz"
 						target="_blank"
@@ -107,34 +124,6 @@ const Index: NextPage<Props> = (props) => {
 						CV
 					</a>{" "}
 					for a full overview of my work and projects.
-				</p>
-
-				<p className="flex flex-wrap gap-3 pt-2">
-					<a
-						href="https://www.linkedin.com/in/ultirequiem/"
-						target="_blank"
-						rel="noopener noreferrer"
-						title="LinkedIn"
-						className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-[#0A66C2] hover:bg-[#0858a8] text-white transition-colors"
-					>
-						<SiLinkedin className="w-5 h-5" />
-					</a>
-					<a
-						href="mailto:eliaz@bobadilla.tech"
-						title="Email"
-						className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-[#EA4335] hover:bg-[#d03628] text-white transition-colors"
-					>
-						<SiGmail className="w-5 h-5" />
-					</a>
-					<a
-						href="https://x.com/UltiRequiem"
-						target="_blank"
-						rel="noopener noreferrer"
-						title="X / Twitter"
-						className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-black hover:bg-gray-900 text-white transition-colors dark:bg-white dark:text-black dark:hover:bg-gray-200"
-					>
-						<SiX className="w-5 h-5" />
-					</a>
 				</p>
 			</div>
 		</div>

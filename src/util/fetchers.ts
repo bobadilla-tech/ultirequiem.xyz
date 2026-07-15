@@ -19,20 +19,20 @@ interface LanyardResponse {
   };
 }
 
-export const lanyardData = async (): Promise<Types.Presence> => {
-  const lanyard = await fetch(
-    `https://api.lanyard.rest/v1/users/${profile.discordId}`,
-  );
+export const lanyardData = async (): Promise<Types.Presence | null> => {
+  try {
+    const lanyard = await fetch(
+      `https://api.lanyard.rest/v1/users/${profile.discordId}`,
+    );
 
-  const lanyardBody = (await lanyard.json()) as LanyardResponse;
+    const lanyardBody = (await lanyard.json()) as LanyardResponse;
 
-  if ("error" in lanyardBody && lanyardBody.error) {
-    throw new Error(lanyardBody.error.message);
+    if (("error" in lanyardBody && lanyardBody.error) || !lanyardBody.data) {
+      return null;
+    }
+
+    return lanyardBody.data;
+  } catch {
+    return null;
   }
-
-  if (!lanyardBody.data) {
-    throw new Error("No data returned from Lanyard API");
-  }
-
-  return lanyardBody.data;
 };
