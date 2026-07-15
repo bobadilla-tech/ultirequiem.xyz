@@ -28,7 +28,7 @@ const Index: NextPage<Props> = (props) => {
 					<span className="sr-only">Twitter Profile</span>
 				</Twitter>
 
-				{lanyard && (
+				{lanyard?.kv?.location && (
 					<p className="inline-flex items-center space-x-2">
 						<a
 							target="_blank"
