@@ -6,7 +6,6 @@ import {
   SiGit,
   SiGithub,
   SiGo,
-  SiHeroku,
   SiMongodb,
   SiMysql,
   SiNeovim,
@@ -23,6 +22,7 @@ import {
   SiSvelte,
   SiTailwindcss,
 } from "react-icons/si";
+import { BiLogoHeroku } from "react-icons/bi";
 import { ListItem } from "../components/list-item";
 
 export function Technologies() {
@@ -70,7 +70,7 @@ export function Technologies() {
         <ListItem icon={SiPnpm} text="PNPM" />
         <ListItem icon={SiArchlinux} text="ArchLinux" />
         <ListItem icon={SiNetlify} text="Netlify" />
-        <ListItem icon={SiHeroku} text="Heroku" />
+        <ListItem icon={BiLogoHeroku} text="Heroku" />
         <ListItem
           icon={SiGithub}
           text="GitHub"
