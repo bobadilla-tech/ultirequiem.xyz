@@ -8,8 +8,8 @@ import {
 	FiCode,
 	FiBookOpen,
 } from "react-icons/fi";
-import { SiGmail, SiGithub, SiLinkedin, SiYoutube, SiX } from "react-icons/si";
-
+import { SiGmail, SiGithub, SiYoutube, SiX } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";
 const CVPage: NextPage = () => {
 	const container = {
 		hidden: { opacity: 0 },
@@ -88,7 +88,7 @@ const CVPage: NextPage = () => {
 						/>
 						<ContactBadge
 							href="https://www.linkedin.com/in/ultirequiem/"
-							icon={SiLinkedin}
+							icon={FaLinkedin}
 							label="LinkedIn"
 							hoverColor="hover:bg-blue-600/80"
 							external

@@ -1,8 +1,8 @@
 import type { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import { HiOutlineLocationMarker } from "react-icons/hi";
-import { SiGithub, SiGmail, SiLinkedin, SiX } from "react-icons/si";
-import { type Types, useLanyardWS } from "use-lanyard";
+import { SiGithub, SiGmail, SiX } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";import { type Types, useLanyardWS } from "use-lanyard";
 import { Email, GitHub, LinkedIn, Twitter } from "../container/socials";
 import { lanyardData, profile } from "../util";
 
@@ -30,7 +30,7 @@ const Index: NextPage<Props> = (props) => {
 					</Twitter>
 
 					<LinkedIn>
-						<SiLinkedin className="w-7 h-7" />
+						<FaLinkedin className="w-7 h-7" />
 						<span className="sr-only">LinkedIn Profile</span>
 					</LinkedIn>
 
