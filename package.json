@@ -11,7 +11,7 @@
     "@headlessui/react": "^2.2.10",
     "alistair": "^1.4.0",
     "dayjs": "^1.11.13",
-    "framer-motion": "^11.15.0",
+    "framer-motion": "^14.9.0",
     "hamburger-react": "^2.5.1",
     "ioredis": "^5.4.2",
     "ms": "^2.1.3",
