@@ -24,7 +24,7 @@
         "swr": "^2.2.5",
         "urlcat": "^3.2.0",
         "use-github": "^0.1.2",
-        "use-lanyard": "^1.4.1",
+        "use-lanyard": "^2.0.0",
         "zod": "^3.23.8",
       },
       "devDependencies": {
@@ -254,7 +254,7 @@
 
     "@next/swc-win32-x64-msvc": ["@next/swc-win32-x64-msvc@16.4.6", "", { "os": "win32", "cpu": "x64" }, "sha512-3ZG15/5WIdlTQsIEvc9sPTTSL5XFrlLklIKmfF4fwsDnoAhu6NcBDXsk3mbGxNyo6aVLEGex+fHCv2MahY7a9g=="],
 
-    "@prequist/lanyard": ["@prequist/lanyard@1.1.0", "", {}, "sha512-OBBRIoFQZgDF2t7/MBUw35YYmwOU9WAVvvvLHQHrwOw0JrCuTpsl1OI9kSjGjOfsqhB2cHIGYQg5nYPkOsg9nw=="],
+    "@prequist/lanyard": ["@prequist/lanyard@2.0.0", "", { "dependencies": { "sockittt": "^0.0.3" } }, "sha512-ghlW/0efsJ2da2KVp8WUpXoARaGmMC4cocMM6HrYfnZ8PABfinSnrW6IBMqSOpYhFEnYES3h3apmWOFtQu5kvQ=="],
 
     "@react-aria/focus": ["@react-aria/focus@3.21.4", "", { "dependencies": { "@react-aria/interactions": "^3.27.0", "@react-aria/utils": "^3.33.0", "@react-types/shared": "^3.33.0", "@swc/helpers": "^0.5.0", "clsx": "^2.0.0" }, "peerDependencies": { "react": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1", "react-dom": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1" } }, "sha512-6gz+j9ip0/vFRTKJMl3R30MHopn4i19HqqLfSQfElxJD+r9hBnYG1Q6Wd/kl/WRR1+CALn2F+rn06jUnf5sT8Q=="],
 
@@ -914,6 +914,8 @@
 
     "slash": ["slash@3.0.0", "", {}, "sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q=="],
 
+    "sockittt": ["sockittt@0.0.3", "", {}, "sha512-M31w+VviBSZol3Q6uDLmdLuWpkr1qUEizbzWnqMRY2wtZfKDjTiKMSIHZVfmDegCv132UaN6pl48/yPJZmWWzQ=="],
+
     "source-map": ["source-map@0.5.7", "", {}, "sha512-LbrmJOMUSdEVxIKvdcJzQC+nQhe8FUZQTXQy6+I75skNgn3OoQ0DZA8YnFa7gp8tqtL3KPf1kmo0R5DoApeSGQ=="],
 
     "source-map-js": ["source-map-js@1.2.1", "", {}, "sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA=="],
@@ -990,7 +992,7 @@
 
     "use-github": ["use-github@0.1.2", "", { "dependencies": { "swr": "^1.2.2" } }, "sha512-vezn3b/Kn678rWDVemDfONBYoJRl96shEubo8b7jigJ2zVHTVbGy/tIlxh3fpI+zst+eA7AGiBveNMQCF+z04w=="],
 
-    "use-lanyard": ["use-lanyard@1.7.0", "", { "dependencies": { "@prequist/lanyard": "^1.0.1" }, "peerDependencies": { "react": "*", "react-dom": "*" } }, "sha512-QtZaNugdA49GTjXJDTKM7E0hJNvbd4JavnKDi4zWelrdZAbypuHSd6B5gM4w14DGSkvr3z5DEJA85t74FAK1lA=="],
+    "use-lanyard": ["use-lanyard@2.0.0", "", { "dependencies": { "@prequist/lanyard": "^2.0.0" }, "peerDependencies": { "react": "*", "react-dom": "*" } }, "sha512-neRkEScUN9kRk7/Wb00/lM3focC0WKEL56x0Z/PE9gCziCTxq5yoxXiScF+PhJRdWAm+ibeEGNGXyohGB1cDoA=="],
 
     "use-sync-external-store": ["use-sync-external-store@1.6.0", "", { "peerDependencies": { "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0" } }, "sha512-Pp6GSwGP/NrPIrxVFAIkOQeyw8lFenOHijQWkUTrDvrF4ALqylP2C/KCkeS9dpUM3KvYRQhna5vt7IL95+ZQ9w=="],
 

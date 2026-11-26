@@ -27,7 +27,7 @@
     "swr": "^2.2.5",
     "urlcat": "^3.2.0",
     "use-github": "^0.1.2",
-    "use-lanyard": "^1.4.1",
+    "use-lanyard": "^2.0.0",
     "zod": "^3.23.8"
   },
   "engines": {
